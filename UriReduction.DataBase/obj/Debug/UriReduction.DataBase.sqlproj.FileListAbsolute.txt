@@ -1,0 +1,5 @@
+D:\UriReduction\UriReduction.DataBase\bin\Debug\UriReduction.DataBase.dacpac
+D:\UriReduction\UriReduction.DataBase\bin\Debug\UriReduction.DataBase.dll
+D:\UriReduction\UriReduction.DataBase\bin\Debug\UriReduction.DataBase.pdb
+D:\UriReduction\UriReduction.DataBase\obj\Debug\UriReduction.DataBase.dll
+D:\UriReduction\UriReduction.DataBase\obj\Debug\UriReduction.DataBase.pdb
