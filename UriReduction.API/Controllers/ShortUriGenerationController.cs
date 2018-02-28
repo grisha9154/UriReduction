@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UriReduction.Models;
 using UriReduction.Services.UriShorteners;
 
 namespace UriReduction.API.Controllers
@@ -13,14 +14,14 @@ namespace UriReduction.API.Controllers
         }
 
         [HttpGet]
-        public string Get()
+        public IActionResult Get()
         {
-            return "eee boy";
+            return View("~/wwwroot/index.html");
         }
         [HttpPost]
-        public string Post(string longUri)
+        public string Post( [FromBody]AssociatedUri longUri)
         {
-            return "SUGC/"+_shortener.Shorten(longUri);
+            return "SUGC/"+_shortener.Shorten(longUri.LongUri);
         }
     }
 }
