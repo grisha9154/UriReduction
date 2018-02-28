@@ -1,5 +1,4 @@
 const React = require('react');
-const Button = require('material-ui').Button;
 
 class LongUriForm extends React.Component{
       render() {
