@@ -19,7 +19,7 @@ function mapStateToProps(state){
         longUri:state.longUri
     };
 }
-function mapDispatchToProps(dispatch, owner){
+function mapDispatchToProps(dispatch){
     return{
         GetShortUri:(longUri)=>{
             dispatch(actions.GetShortUri(longUri));
