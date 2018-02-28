@@ -6,8 +6,10 @@ class Cloudinary extends React.Component{
         return (
         <CloudinaryContext cloudName="dwvdvjlas">
             <div>
-                <Image publickId="sample" />
+                <Image publicId="sample" width="300"/>
             </div>
         </CloudinaryContext>);
     }
 }
+
+module.exports = Cloudinary;
