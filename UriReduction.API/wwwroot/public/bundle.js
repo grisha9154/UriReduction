@@ -30921,7 +30921,7 @@ var App = function (_React$Component) {
                     'div',
                     null,
                     React.createElement(LongUriForm, { onSubmit: this.props.onSubmit, onLongUriChange: this.props.onLongUriChange, longUri: this.props.longUri }),
-                    React.createElement(Cloundinary, null)
+                    React.createElement(Cloundinary, { uploadPreset: 'mfpiaktj', cloudName: 'dwvdvjlas' })
                 );
             }
         }
@@ -32026,15 +32026,16 @@ var CloudinaryContainer = function (_React$Component) {
         value: function uploadFile(file) {
             console.log(this.props.cloudName);
             var url = 'https://api.cloudinary.com/v1_1/' + this.props.cloudName + '/upload';
+            var fd = FormData();
+            fd.append('upload_preset', this.props.uploadPreset);
+            fd.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
+            fd.append('file', file);
             var data = {
                 upload_preset: this.props.uploadPreset,
                 tags: 'browser_upload',
                 file: file
             };
-            axios.post(url, data, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                } }).then(function (resualt) {
+            axios.post(url, fd).then(function (resualt) {
                 console.log(resualt);
             });
         }

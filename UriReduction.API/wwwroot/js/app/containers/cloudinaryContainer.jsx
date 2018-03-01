@@ -23,15 +23,16 @@ class CloudinaryContainer extends React.Component{
     uploadFile(file){
         console.log(this.props.cloudName);
         let url = `https://api.cloudinary.com/v1_1/${this.props.cloudName}/upload`;
+        let fd = FormData();
+        fd.append('upload_preset', this.props.uploadPreset);
+        fd.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
+        fd.append('file', file);
         let data = {
             upload_preset:this.props.uploadPreset,
             tags:'browser_upload',
             file: file
         };
-        axios.post(url,data,{
-            headers:{
-                'Content-Type':'multipart/form-data'
-            }}).then((resualt)=>{
+        axios.post(url,fd).then((resualt)=>{
                 console.log(resualt);
             });
     }
