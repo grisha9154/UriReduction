@@ -1,6 +1,7 @@
 const React = require ('react');
 const Cloudinary = require('../components/cloudinary.jsx');
 const axios = require('axios');
+const reduce = require('../shared/uriDerucer.js');
 
 class CloudinaryContainer extends React.Component{
     constructor(props){
@@ -28,7 +29,7 @@ class CloudinaryContainer extends React.Component{
         fd.append('tags', 'browser_upload');
         fd.append('file', file);
         axios.post(url,fd).then((resualt)=>{
-                console.log(resualt);
+                reduce(resualt.data.secure_url,this.props.onSubmit);
             });
     }
     render(){
