@@ -10,9 +10,9 @@ class CloudinaryContainer extends React.Component{
     onInputChange(event){
         let files  = document.getElementById('fileElem').files
         console.log(files);
-        files.forEach(file => {
-            this.uploadFile(file);
-        });
+        for (let i = 0; i < files.length; i++) {
+            this.uploadFile(files[i]);
+          }
     }
     uploadFile(file){
         let url = `https://api.cloudinary.com/v1_1/${this.props.cloudName}/upload`;
