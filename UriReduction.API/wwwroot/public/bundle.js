@@ -32002,9 +32002,26 @@ var CloudinaryContainer = function (_React$Component) {
     }
 
     _createClass(CloudinaryContainer, [{
+        key: 'onClick',
+        value: function onClick(event) {
+            document.getElementById('fileElem').click();
+            event.preventDefault();
+        }
+    }, {
+        key: 'onInputChange',
+        value: function onInputChange(event) {
+            var files = document.getElementById('fileElem').files;
+            console.log(files);
+        }
+    }, {
+        key: 'uploadFile',
+        value: function uploadFile(file) {
+            var url = 'https://api.cloudinary.com/v1_1/' + this.props.cloudName + '/upload';
+        }
+    }, {
         key: 'render',
         value: function render() {
-            return React.createElement(Cloudinary, null);
+            return React.createElement(Cloudinary, { onChange: this.onInputChange, onClick: this.onClick });
         }
     }]);
 

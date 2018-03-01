@@ -3,7 +3,7 @@ const connect = require('react-redux').connect;
 const actions = require('../actions.jsx');
 const LongUriForm = require('../containers/longUriFormContainer.jsx');
 const ShortUriForm = require('../components/shortUriForm.jsx');
-const Cloundinary = require('../containers/cloudinary.jsx');
+const Cloundinary = require('../containers/cloudinaryContainer.jsx');
 
 class App extends React.Component{
     render(){
