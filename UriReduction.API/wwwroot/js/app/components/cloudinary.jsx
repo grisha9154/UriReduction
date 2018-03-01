@@ -17,3 +17,5 @@ class Cloudinary extends React.Component{
         </div>);
     }
 }
+
+module.exports = Cloudinary;

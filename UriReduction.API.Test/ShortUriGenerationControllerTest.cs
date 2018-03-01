@@ -1,5 +1,6 @@
 ﻿using Moq;
 using UriReduction.API.Controllers;
+using UriReduction.Models;
 using UriReduction.Services.UriShorteners;
 using Xunit;
 
@@ -16,7 +17,7 @@ namespace UriReduction.API.Test
             fakeUriShortener.Setup(shortener => shortener.Shorten(longUri)).Returns(shortUri);
             var generationController = new ShortUriGenerationController(fakeUriShortener.Object);
 
-            var result = generationController.Post(longUri);
+            var result = generationController.Post(new AssociatedUri{ShortUri = shortUri, LongUri = longUri});
 
             Assert.Equal("SUGC/"+shortUri,result);
         }

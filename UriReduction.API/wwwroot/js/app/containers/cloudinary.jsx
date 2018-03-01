@@ -8,3 +8,5 @@ class CloudinaryContainer extends React.Component{
         );
     }
 }
+
+module.exports = CloudinaryContainer;
