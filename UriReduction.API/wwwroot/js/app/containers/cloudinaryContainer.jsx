@@ -1,5 +1,6 @@
 const React = require ('react');
 const Cloudinary = require('../components/cloudinary.jsx');
+const axios = require('axios');
 
 class CloudinaryContainer extends React.Component{
     onClick(event){
