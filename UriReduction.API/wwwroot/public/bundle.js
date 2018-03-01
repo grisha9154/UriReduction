@@ -31996,10 +31996,14 @@ var axios = __webpack_require__(157);
 var CloudinaryContainer = function (_React$Component) {
     _inherits(CloudinaryContainer, _React$Component);
 
-    function CloudinaryContainer() {
+    function CloudinaryContainer(props) {
         _classCallCheck(this, CloudinaryContainer);
 
-        return _possibleConstructorReturn(this, (CloudinaryContainer.__proto__ || Object.getPrototypeOf(CloudinaryContainer)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (CloudinaryContainer.__proto__ || Object.getPrototypeOf(CloudinaryContainer)).call(this, props));
+
+        _this.uploadFile = _this.uploadFile.bind(_this);
+        _this.onInputChange = _this.onInputChange.bind(_this);
+        return _this;
     }
 
     _createClass(CloudinaryContainer, [{
@@ -32020,6 +32024,7 @@ var CloudinaryContainer = function (_React$Component) {
     }, {
         key: 'uploadFile',
         value: function uploadFile(file) {
+            console.log(this.props.cloudName);
             var url = 'https://api.cloudinary.com/v1_1/' + this.props.cloudName + '/upload';
             var data = {
                 upload_preset: this.props.uploadPreset,

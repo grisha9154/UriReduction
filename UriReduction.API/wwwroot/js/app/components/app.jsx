@@ -18,7 +18,7 @@ class App extends React.Component{
         return  (
         <div>
             <LongUriForm onSubmit={this.props.onSubmit} onLongUriChange={this.props.onLongUriChange} longUri={this.props.longUri} />
-            <Cloundinary />
+            <Cloundinary uploadPreset='mfpiaktj' cloudName="dwvdvjlas"/>
         </div>);
         }
     }

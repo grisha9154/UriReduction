@@ -21,6 +21,7 @@ class CloudinaryContainer extends React.Component{
           }
     }
     uploadFile(file){
+        console.log(this.props.cloudName);
         let url = `https://api.cloudinary.com/v1_1/${this.props.cloudName}/upload`;
         let data = {
             upload_preset:this.props.uploadPreset,
