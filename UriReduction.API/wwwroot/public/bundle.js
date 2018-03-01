@@ -30907,13 +30907,15 @@ var App = function (_React$Component) {
                     'div',
                     null,
                     React.createElement(LongUriForm, { onSubmit: this.props.onSubmit, onLongUriChange: this.props.onLongUriChange, longUri: this.props.longUri }),
-                    React.createElement(ShortUriForm, { shortUri: this.props.shortUri })
+                    React.createElement(ShortUriForm, { shortUri: this.props.shortUri }),
+                    React.createElement(Cloundinary, null)
                 );
             } else {
                 return React.createElement(
                     'div',
                     null,
-                    React.createElement(LongUriForm, { onSubmit: this.props.onSubmit, onLongUriChange: this.props.onLongUriChange, longUri: this.props.longUri })
+                    React.createElement(LongUriForm, { onSubmit: this.props.onSubmit, onLongUriChange: this.props.onLongUriChange, longUri: this.props.longUri }),
+                    React.createElement(Cloundinary, null)
                 );
             }
         }
@@ -32009,6 +32011,8 @@ var CloudinaryContainer = function (_React$Component) {
     return CloudinaryContainer;
 }(React.Component);
 
+module.exports = CloudinaryContainer;
+
 /***/ }),
 /* 429 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -32058,6 +32062,8 @@ var Cloudinary = function (_React$Component) {
 
     return Cloudinary;
 }(React.Component);
+
+module.exports = Cloudinary;
 
 /***/ }),
 /* 430 */
