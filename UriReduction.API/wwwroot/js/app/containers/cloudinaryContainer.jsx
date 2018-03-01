@@ -3,6 +3,11 @@ const Cloudinary = require('../components/cloudinary.jsx');
 const axios = require('axios');
 
 class CloudinaryContainer extends React.Component{
+    constructor(props){
+        super(props);
+        
+        this.uploadFile = this.uploadFile.bind(this);
+    }
     onClick(event){
         document.getElementById('fileElem').click();
         event.preventDefault(); 
