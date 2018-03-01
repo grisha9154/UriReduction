@@ -7,6 +7,7 @@ class CloudinaryContainer extends React.Component{
         super(props);
         
         this.uploadFile = this.uploadFile.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
     }
     onClick(event){
         document.getElementById('fileElem').click();
