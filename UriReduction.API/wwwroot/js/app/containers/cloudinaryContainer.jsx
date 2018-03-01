@@ -13,6 +13,7 @@ class CloudinaryContainer extends React.Component{
     }
     uploadFile(file){
         let url = `https://api.cloudinary.com/v1_1/${this.props.cloudName}/upload`;
+        axios.post().
     }
     render(){
         return (
