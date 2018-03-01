@@ -8,12 +8,25 @@ class CloudinaryContainer extends React.Component{
         event.preventDefault(); 
     }
     onInputChange(event){
-        let files  = document.getElementById('fileElem').files;
+        let files  = document.getElementById('fileElem').files
         console.log(files);
+        files.forEach(file => {
+            this.uploadFile(file);
+        });
     }
     uploadFile(file){
         let url = `https://api.cloudinary.com/v1_1/${this.props.cloudName}/upload`;
-        axios.post().
+        let data = {
+            upload_preset:this.props.uploadPreset,
+            tags:'browser_upload',
+            file: file
+        };
+        axios.post(url,data,{
+            headers:{
+                'Content-Type':'multipart/form-data'
+            }}).then((resualt)=>{
+                console.log(resualt);
+            });
     }
     render(){
         return (
