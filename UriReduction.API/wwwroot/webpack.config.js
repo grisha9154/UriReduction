@@ -2,6 +2,8 @@ const path = require('path');
 
 module.exports = {
   entry: './ts/app.tsx',
+  devtool: 'eval-source-map',
+  mode:"development",
   module:{
       rules:[
           {

@@ -1,10 +1,10 @@
 import * as React from "react";
 import {IProps} from "../props";
-import {LongUriForm} from "./longUriForm";
+import {LongUriFormContainer} from "../containers/longUriFormContainer";
 import {Cloudinary} from "./cloudinary";
 import {ShortUriForm} from "./shortUriForm";
 
-export function App ({fullSet, shortUri, onLongUriSubmit, onLongUriChange, longUri,onCloudinarySubmit,onCloudinaryChange}:IProps): any {
+export function App ({fullSet, shortUri, onLongUriSubmit, onLongUriChange, longUri,onCloudinarySubmit,onCloudinaryChange}: IProps): any {
     if(fullSet) {
         return <GetFullForm shortUri={shortUri} onLongUriSubmit={ onLongUriSubmit}
         onLongUriChange = {onLongUriChange}
@@ -36,7 +36,7 @@ function GetFullForm({shortUri,onLongUriSubmit,onLongUriChange,longUri, onCloudi
 function GetLongForm({onLongUriSubmit,onLongUriChange,longUri, onCloudinarySubmit, onCloudinaryChange}:IProps):any {
     return  (
         <div>
-            <LongUriForm onLongUriSubmit={onLongUriSubmit} onLongUriChange={onLongUriChange} longUri={longUri} />
+            <LongUriFormContainer onLongUriSubmit={onLongUriSubmit} onLongUriChange={onLongUriChange} longUri={longUri} />
             <Cloudinary onCloudinarySubmit={onCloudinarySubmit} onCloudinaryChange = {onCloudinaryChange} />
         </div>);
 }
