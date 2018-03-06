@@ -9,7 +9,6 @@ export class LongUriFormContainer extends  React.Component<IProps, object> {
     onLongUriFormChainge: (longUri: string)=>void;
     constructor(props:IProps) {
         super(props);
-
         this.longUri = props.longUri;
         this.onFormSubmit = props.onLongUriSubmit;
         this.onLongUriFormChainge = props.onLongUriChange;
@@ -22,10 +21,10 @@ export class LongUriFormContainer extends  React.Component<IProps, object> {
         }
         sendToServer(this.longUri,this.onFormSubmit);
     }
-    onLongUriChange(): void {
-        this.onLongUriFormChainge(this.longUri);
+    onLongUriChange(event:any): void {
+        this.onLongUriFormChainge(event.target.value);
     }
     render():any {
-        return <LongUriForm onSubmit={this.onSubmit} onLongUriChange={this.onLongUriChange} longUri={this.longUri} />;
+        return <LongUriForm onSubmit={this.onSubmit} onLongUriChange={this.onLongUriChange} longUri={this.props.longUri} />;
     }
 }

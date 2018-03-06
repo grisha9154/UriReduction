@@ -34,6 +34,7 @@ function GetFullForm({shortUri,onLongUriSubmit,onLongUriChange,longUri, onCloudi
 }
 
 function GetLongForm({onLongUriSubmit,onLongUriChange,longUri, onCloudinarySubmit, onCloudinaryChange}:IProps):any {
+    console.log(longUri);
     return  (
         <div>
             <LongUriFormContainer onLongUriSubmit={onLongUriSubmit} onLongUriChange={onLongUriChange} longUri={longUri} />
