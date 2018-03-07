@@ -18,8 +18,6 @@ class AppContainer extends  React.Component<IProps, object> {
                     onLongUriSubmit = {this.props.onLongUriSubmit} />;
     }
 }
-
-
 function mapStateToProps(state:IStoreState): any {
     console.log("MapState",state);
     return {
