@@ -5,6 +5,7 @@ import {Cloudinary} from "./cloudinary";
 import {ShortUriForm} from "./shortUriForm";
 
 export function App ({fullSet, shortUri, onLongUriSubmit, onLongUriChange, longUri,onCloudinarySubmit,onCloudinaryChange}: IProps): any {
+    console.log("fullSet",fullSet);
     if(fullSet) {
         return <GetFullForm shortUri={shortUri} onLongUriSubmit={ onLongUriSubmit}
         onLongUriChange = {onLongUriChange}
@@ -34,7 +35,6 @@ function GetFullForm({shortUri,onLongUriSubmit,onLongUriChange,longUri, onCloudi
 }
 
 function GetLongForm({onLongUriSubmit,onLongUriChange,longUri, onCloudinarySubmit, onCloudinaryChange}:IProps):any {
-    console.log(longUri);
     return  (
         <div>
             <LongUriFormContainer onLongUriSubmit={onLongUriSubmit} onLongUriChange={onLongUriChange} longUri={longUri} />

@@ -4,9 +4,11 @@ export function sendToServer (longUri: string, onSubmit:(data:string)=>void):voi
     $.ajax({
         url:"/SUGC",
         data:data,
+        method:"POST",
         contentType:"application/json",
         success:(result:any)=> {
-            onSubmit(result.data);
+            console.log("ajax result",result);
+            onSubmit(result);
         }
     });
 }

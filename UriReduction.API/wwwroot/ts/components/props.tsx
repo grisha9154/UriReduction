@@ -3,7 +3,7 @@ export interface IProps {
     shortUri?: string;
     longUri?: string;
     onLongUriSubmit?: ()=> void;
-    onLongUriChange?: ()=> void;
+    onLongUriChange?: (longUr:string)=> void;
     onCloudinarySubmit?: ()=> void;
     onCloudinaryChange?: ()=> void;
 }

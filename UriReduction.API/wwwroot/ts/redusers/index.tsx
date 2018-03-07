@@ -6,6 +6,7 @@ export function reduser(state: IStoreState, action: UriAction): IStoreState {
   switch (action.type) {
     case SET_SHORT_URI:
     {
+        console.log("OnSubmitData",state,action);
         return Object.assign({},state,{
             shortUri:action.value,
             fullSet: true
@@ -13,7 +14,6 @@ export function reduser(state: IStoreState, action: UriAction): IStoreState {
     }
     case CHANGE_LONG_URI:
     {
-        console.log(action);
         return Object.assign({},state,{
             longUri:action.value
         });

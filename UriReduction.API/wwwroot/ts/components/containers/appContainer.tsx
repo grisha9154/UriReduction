@@ -6,37 +6,31 @@ import * as actions from "../../actionsCreator";
 import { IStoreState } from "../../types/index";
 
 class AppContainer extends  React.Component<IProps, object> {
-    fullSet:boolean;
-    shortUri:string;
-    longUri:string;
-    onLongUriChange:(longUri:string)=>void;
     constructor(props:IProps) {
         super(props);
-        this.fullSet = props.fullSet;
-        this.shortUri = props.shortUri;
-        this.longUri = props.longUri;
-        this.onLongUriChange = props.onLongUriChange;
     }
     render():any {
         return <App
-                        fullSet={this.props.fullSet}
-                        shortUri={this.props.shortUri}
-                        longUri={this.props.longUri}
-                        onLongUriChange={this.props.onLongUriChange} />;
+                    fullSet={this.props.fullSet}
+                    shortUri={this.props.shortUri}
+                    longUri={this.props.longUri}
+                    onLongUriChange={this.props.onLongUriChange}
+                    onLongUriSubmit = {this.props.onLongUriSubmit} />;
     }
 }
 
 
 function mapStateToProps(state:IStoreState): any {
+    console.log("MapState",state);
     return {
-        fullSetTest:state.fullSet,
+        fullSet:state.fullSet,
         shortUri:state.shortUri,
         longUri:state.longUri
     };
 }
 function mapDispatchToProps(dispatch: Dispatch<actions.UriAction>):any {
     return{
-        setShortUri:(longUri:string)=> {
+        onLongUriSubmit:(longUri:string)=> {
             dispatch(actions.setShortUri(longUri));
         },
         onLongUriChange:(longUri: string)=> {
