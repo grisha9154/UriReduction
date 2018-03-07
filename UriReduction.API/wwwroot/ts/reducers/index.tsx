@@ -1,8 +1,8 @@
-import { UriAction } from "../actionsCreator";
-import { IStoreState } from "../types";
-import { SET_SHORT_URI, CHANGE_LONG_URI } from "../constants";
+import { UriAction } from "../actionsCreator/index";
+import { IStoreState } from "../types/index";
+import { SET_SHORT_URI, CHANGE_LONG_URI } from "../constants/index";
 
-export function reduser(state: IStoreState, action: UriAction): IStoreState {
+export function uriReducer(state: IStoreState = {longUri:"", shortUri:"", fullSet:false}, action: UriAction): IStoreState {
   switch (action.type) {
     case SET_SHORT_URI:
     {

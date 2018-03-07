@@ -1,4 +1,4 @@
-import * as constants from "../constants";
+import * as constants from "../constants/index";
 
 export interface IChangeLongUri {
     type: constants.CHANGE_LONG_URI;
