@@ -27,6 +27,7 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
+    "redux-file-upload": "0.0.19",
     "ts-loader": "^4.0.1",
     "typescript": "^2.7.2",
     "yarn": "^1.5.1"
