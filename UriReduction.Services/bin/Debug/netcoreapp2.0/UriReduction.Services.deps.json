@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v2.0": {
       "UriReduction.Services/1.0.0": {
         "dependencies": {
-          "UriReduction.Data": "1.0.0"
+          "UriReduction.Data": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.0.2.0"
         },
         "runtime": {
           "UriReduction.Services.dll": {}
@@ -199,6 +200,11 @@
         "runtime": {
           "UriReduction.Models.dll": {}
         }
+      },
+      "Microsoft.AspNetCore.Mvc.Abstractions/2.0.2.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.Mvc.Abstractions.dll": {}
+        }
       }
     }
   },
@@ -355,6 +361,11 @@
     },
     "UriReduction.Models/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Mvc.Abstractions/2.0.2.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }
