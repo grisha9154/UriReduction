@@ -7,7 +7,6 @@ export function sendToServer (longUri: string, onSubmit:(data:string)=>void):voi
         method:"POST",
         contentType:"application/json",
         success:(result:any)=> {
-            console.log("ajax result",result);
             onSubmit(result);
         }
     });

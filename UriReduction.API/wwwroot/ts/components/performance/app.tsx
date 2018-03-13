@@ -6,7 +6,6 @@ import {ShortUriForm} from "./shortUriForm";
 import {FileUploadContainer} from "../containers/reduxFileLoadContainer";
 
 export function App ({fullSet, shortUri, onLongUriSubmit, onLongUriChange, longUri,onCloudinarySubmit,onCloudinaryChange}: IProps): any {
-    console.log("fullSet",fullSet);
     if(fullSet) {
         return <GetFullForm shortUri={shortUri} onLongUriSubmit={ onLongUriSubmit}
         onLongUriChange = {onLongUriChange}

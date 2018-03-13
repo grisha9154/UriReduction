@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace UriReduction.API.Controllers
 {
@@ -6,10 +9,19 @@ namespace UriReduction.API.Controllers
     public class ImageLoaderController: Controller
     {
         [HttpPost]
-        [Route("image")]
-        public string Post()
+        [Route("/image")]
+        public async Task<string> Post(IFormFile file)
         {
-            return "qwe";
+            var filePath = Path.GetTempFileName();
+            if(file.Length > 0)
+            {
+                using (var stream = new FileStream("D:\\test.jpeg", FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+            }
+
+            return "{}";
         }
     }
 }
