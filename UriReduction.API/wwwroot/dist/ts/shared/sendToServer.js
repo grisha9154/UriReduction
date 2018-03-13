@@ -12,4 +12,7 @@ export function sendToServer(longUri, onSubmit) {
         }
     });
 }
+<<<<<<< HEAD
 //# sourceMappingURL=sendToServer.js.map
+=======
+>>>>>>> 8c937d476960c0b1526b013489c05ec8b00811f9

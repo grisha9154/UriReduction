@@ -5,4 +5,7 @@ export function Cloudinary({ onCloudinarySubmit, onCloudinaryChange }) {
         React.createElement("input", { id: "fileElem", type: "file", style: inputStyle, onChange: onCloudinaryChange }),
         React.createElement("a", { href: "#", onClick: onCloudinarySubmit }, "Select Image")));
 }
+<<<<<<< HEAD
 //# sourceMappingURL=cloudinary.js.map
+=======
+>>>>>>> 8c937d476960c0b1526b013489c05ec8b00811f9

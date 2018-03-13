@@ -21,4 +21,7 @@ export class LongUriFormContainer extends React.Component {
         return React.createElement(LongUriForm, { onLongUriSubmit: this.onSubmit, onLongUriChange: this.onLongUriChange, longUri: this.props.longUri });
     }
 }
+<<<<<<< HEAD
 //# sourceMappingURL=longUriFormContainer.js.map
+=======
+>>>>>>> 8c937d476960c0b1526b013489c05ec8b00811f9

@@ -2,37 +2,41 @@ import * as React from "react";
 import {connect, Dispatch} from "react-redux";
 import {IProps} from "../props";
 import {App} from "../performance/app";
-import * as actions from "../../actionsCreator";
+import {UriAction,setShortUri,changeLongUri} from "../../actionsCreator/index";
 import { IStoreState } from "../../types/index";
 
-class AppContainer extends  React.Component<IProps, object> {
-    constructor(props:IProps) {
+class AppContainer extends  React.Component<any, object> {
+    constructor(props:any) {
         super(props);
     }
     render():any {
+        console.log(this.props);
         return <App
-                    fullSet={this.props.fullSet}
-                    shortUri={this.props.shortUri}
-                    longUri={this.props.longUri}
+                    fullSet={this.props.uriReducer.fullSet}
+                    shortUri={this.props.uriReducer.shortUri}
+                    longUri={this.props.uriReducer.longUri}
                     onLongUriChange={this.props.onLongUriChange}
                     onLongUriSubmit = {this.props.onLongUriSubmit} />;
     }
 }
-function mapStateToProps(state:IStoreState): any {
+function mapStateToProps(state:any): any {
     console.log("MapState",state);
     return {
-        fullSet:state.fullSet,
-        shortUri:state.shortUri,
-        longUri:state.longUri
+        uriReducer:{
+            fullSet:state.uriReducer.fullSet,
+            shortUri:state.uriReducer.shortUri,
+            longUri:state.uriReducer.longUri
+        }
     };
 }
-function mapDispatchToProps(dispatch: Dispatch<actions.UriAction>):any {
+function mapDispatchToProps(dispatch: Dispatch<UriAction>):any {
+    console.log("Dispatch");
     return{
         onLongUriSubmit:(longUri:string)=> {
-            dispatch(actions.setShortUri(longUri));
+            dispatch(setShortUri(longUri));
         },
         onLongUriChange:(longUri: string)=> {
-            dispatch(actions.changeLongUri(longUri));
+            dispatch(changeLongUri(longUri));
         }
     };
 }
