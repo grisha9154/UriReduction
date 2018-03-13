@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../ts/actionsCreator/index.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,SAAS,MAAM,cAAc,CAAC;AAc1C,MAAM,sBAAsB,QAAgB;IACxC,MAAM,CAAC;QACH,IAAI,EAAE,SAAS,CAAC,aAAa;QAC7B,KAAK,EAAE,QAAQ;KAClB,CAAC;AACN,CAAC;AAED,MAAM,wBAAwB,OAAe;IACzC,MAAM,CAAC;QACH,IAAI,EAAE,SAAS,CAAC,eAAe;QAC/B,KAAK,EAAE,OAAO;KACjB,CAAC;AACN,CAAC"}
