@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using UriReduction.API.Controllers;
 using UriReduction.Services.ShortUriDecoders;
+using UriReduction.Services.ShortUriRequestCounters;
 using Xunit;
 
 namespace UriReduction.API.Test
@@ -15,7 +16,9 @@ namespace UriReduction.API.Test
             const string longUri = "https://translate.yandex.by/?lang=en-ru&text=Fake";
             var fakeShortUriDecoder = new Mock<IShortUriDecoder>();
             fakeShortUriDecoder.Setup(decoder => decoder.DecipherShortUri(shortUri)).Returns(longUri);
-            var redirectController = new ShortUriRedirectionController(fakeShortUriDecoder.Object);
+            var fakeShortUriRequestCounter = new Mock<IShortUriRequestCounter>();
+            fakeShortUriRequestCounter.Setup(counter => counter.IncrementShortUriRequestCount(shortUri)).Returns(1);
+            var redirectController = new ShortUriRedirectionController(fakeShortUriDecoder.Object,fakeShortUriRequestCounter.Object);
 
             var result = redirectController.Get(shortUri);
 

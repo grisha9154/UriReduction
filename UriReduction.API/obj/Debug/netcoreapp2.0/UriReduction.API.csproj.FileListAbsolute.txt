@@ -3,7 +3,6 @@ D:\UriReduction\UriReduction.API\bin\Debug\netcoreapp2.0\UriReduction.API.runtim
 D:\UriReduction\UriReduction.API\bin\Debug\netcoreapp2.0\UriReduction.API.runtimeconfig.dev.json
 D:\UriReduction\UriReduction.API\bin\Debug\netcoreapp2.0\UriReduction.API.dll
 D:\UriReduction\UriReduction.API\bin\Debug\netcoreapp2.0\UriReduction.API.pdb
-D:\UriReduction\UriReduction.API\obj\Debug\netcoreapp2.0\UriReduction.API.csprojResolveAssemblyReference.cache
 D:\UriReduction\UriReduction.API\obj\Debug\netcoreapp2.0\UriReduction.API.csproj.CoreCompileInputs.cache
 D:\UriReduction\UriReduction.API\obj\Debug\netcoreapp2.0\UriReduction.API.AssemblyInfoInputs.cache
 D:\UriReduction\UriReduction.API\obj\Debug\netcoreapp2.0\UriReduction.API.AssemblyInfo.cs
@@ -15,3 +14,4 @@ D:\UriReduction\UriReduction.API\bin\Debug\netcoreapp2.0\UriReduction.Services.d
 D:\UriReduction\UriReduction.API\bin\Debug\netcoreapp2.0\UriReduction.Services.pdb
 D:\UriReduction\UriReduction.API\bin\Debug\netcoreapp2.0\UriReduction.Models.pdb
 D:\UriReduction\UriReduction.API\bin\Debug\netcoreapp2.0\UriReduction.Data.pdb
+D:\UriReduction\UriReduction.API\obj\Debug\netcoreapp2.0\UriReduction.API.csprojResolveAssemblyReference.cache

@@ -19,7 +19,6 @@ class AppContainer extends  React.Component<any, object> {
     }
 }
 function mapStateToProps(state:any): any {
-    console.log("state",state);
     if(state.uriReducer.shortUri==="" && state.fileUpload.shortUri!==undefined) {
         return {
             uriReducer:{

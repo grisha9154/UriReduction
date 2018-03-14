@@ -10,6 +10,7 @@ using UriReduction.Data.DataBaseConnectionConfig;
 using UriReduction.Services.HashGenerators;
 using UriReduction.Services.ImageUpload;
 using UriReduction.Services.ShortUriDecoders;
+using UriReduction.Services.ShortUriRequestCounters;
 using UriReduction.Services.UriShorteners;
 
 namespace UriReduction.API
@@ -26,6 +27,7 @@ namespace UriReduction.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IShortUriRequestCounter, ShortUriRequestCounter>();
             services.AddTransient<IImageUploader,ImageUploader>();
             services.AddTransient<IUriShortener, UriShortener>();
             services.AddTransient<IHashGeneretor, HashGenerator>();

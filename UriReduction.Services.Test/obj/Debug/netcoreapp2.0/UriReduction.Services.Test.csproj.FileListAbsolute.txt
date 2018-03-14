@@ -18,3 +18,6 @@ D:\UriReduction\UriReduction.Services.Test\obj\Debug\netcoreapp2.0\UriReduction.
 D:\UriReduction\UriReduction.Services.Test\obj\Debug\netcoreapp2.0\UriReduction.Services.Test.AssemblyInfo.cs
 D:\UriReduction\UriReduction.Services.Test\obj\Debug\netcoreapp2.0\UriReduction.Services.Test.dll
 D:\UriReduction\UriReduction.Services.Test\obj\Debug\netcoreapp2.0\UriReduction.Services.Test.pdb
+D:\UriReduction\UriReduction.Services.Test\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Http.Features.dll
+D:\UriReduction\UriReduction.Services.Test\bin\Debug\netcoreapp2.0\CloudinaryDotNet.dll
+D:\UriReduction\UriReduction.Services.Test\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Http.Features.xml

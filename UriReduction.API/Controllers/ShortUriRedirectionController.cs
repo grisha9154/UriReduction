@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UriReduction.Services.ShortUriDecoders;
+using UriReduction.Services.ShortUriRequestCounters;
 
 namespace UriReduction.API.Controllers
 {
@@ -8,15 +9,19 @@ namespace UriReduction.API.Controllers
     public class ShortUriRedirectionController : Controller
     {
         private readonly IShortUriDecoder _rederection;
-        public ShortUriRedirectionController(IShortUriDecoder rederection)
+        private readonly IShortUriRequestCounter _counter;
+        public ShortUriRedirectionController(IShortUriDecoder rederection, IShortUriRequestCounter counter)
         {
             _rederection = rederection;
+            _counter = counter;
         }
         [HttpGet]
         [Route("{shortUri}")]
         public IActionResult Get(string shortUri)
         {
-            return Redirect(_rederection.DecipherShortUri(shortUri));
+            var longUri= Redirect(_rederection.DecipherShortUri(shortUri));
+            _counter.IncrementShortUriRequestCount(shortUri);
+            return longUri;
         }
     }
 }
