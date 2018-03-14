@@ -30,7 +30,6 @@ function GetFullForm({shortUri,onLongUriSubmit,onLongUriChange,longUri, onCloudi
                           onCloudinarySubmit ={ onCloudinarySubmit}
                           onCloudinaryChange={ onCloudinaryChange}/>
             <ShortUriForm shortUri={shortUri} />
-            <FileUploadContainer />
         </div>);
 }
 

@@ -8,6 +8,7 @@ using React.AspNet;
 using UriReduction.Data;
 using UriReduction.Data.DataBaseConnectionConfig;
 using UriReduction.Services.HashGenerators;
+using UriReduction.Services.ImageUpload;
 using UriReduction.Services.ShortUriDecoders;
 using UriReduction.Services.UriShorteners;
 
@@ -25,6 +26,7 @@ namespace UriReduction.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IImageUploader,ImageUploader>();
             services.AddTransient<IUriShortener, UriShortener>();
             services.AddTransient<IHashGeneretor, HashGenerator>();
             services.AddTransient<IAssociatedUriRepository, AssociatedUriRepository>();
