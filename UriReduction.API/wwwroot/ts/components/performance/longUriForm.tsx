@@ -9,7 +9,7 @@ export interface ILongUriFormProps {
 
 export function LongUriForm ({onLongUriSubmit,longUri,onLongUriChange}:ILongUriFormProps): any {
     return  <form onSubmit={onLongUriSubmit}>
-                <input type="text"
+                <input id="LongUriTextInput" type="text"
                     placeholder="Long Uri"
                     value={longUri}
                     onChange={onLongUriChange}/>

@@ -3,10 +3,9 @@ import {FileUpload} from "redux-file-upload";
 
 export function FileUploadContainer (): any {
     return <FileUpload
-    allowedFileTypes={["jpg", "pdf"]}
-    data={{ type: "picture" }}
+    allowedFileTypes={["jpg","jpeg", "pdf"]}
     dropzoneId="fileUpload"
-    url="https:/url.org/api/docs/upload"
+    url="http://localhost:63303/image"
   >
     <button>
       Click or drag here

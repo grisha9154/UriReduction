@@ -10,7 +10,6 @@ class AppContainer extends  React.Component<any, object> {
         super(props);
     }
     render():any {
-        console.log(this.props);
         return <App
                     fullSet={this.props.uriReducer.fullSet}
                     shortUri={this.props.uriReducer.shortUri}
@@ -20,7 +19,15 @@ class AppContainer extends  React.Component<any, object> {
     }
 }
 function mapStateToProps(state:any): any {
-    console.log("MapState",state);
+    console.log("state",state);
+    if(state.uriReducer.shortUri==="" && state.fileUpload.shortUri!==undefined) {
+        return {
+            uriReducer:{
+                shortUri : state.fileUpload.shortUri,
+                fullSet : true
+            }
+        };
+    }
     return {
         uriReducer:{
             fullSet:state.uriReducer.fullSet,
@@ -30,7 +37,6 @@ function mapStateToProps(state:any): any {
     };
 }
 function mapDispatchToProps(dispatch: Dispatch<UriAction>):any {
-    console.log("Dispatch");
     return{
         onLongUriSubmit:(longUri:string)=> {
             dispatch(setShortUri(longUri));

@@ -6,7 +6,6 @@ export function uriReducer(state: IStoreState = {longUri:"", shortUri:"", fullSe
   switch (action.type) {
     case SET_SHORT_URI:
     {
-        console.log("OnSubmitData",state,action);
         return Object.assign({},state,{
             shortUri:action.value,
             fullSet: true
