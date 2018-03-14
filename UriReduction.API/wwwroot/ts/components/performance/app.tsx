@@ -1,7 +1,6 @@
 import * as React from "react";
 import {IProps} from "../props";
 import {LongUriFormContainer} from "../containers/longUriFormContainer";
-import {Cloudinary} from "./cloudinary";
 import {ShortUriForm} from "./shortUriForm";
 import {FileUploadContainer} from "../containers/reduxFileLoadContainer";
 
@@ -23,7 +22,7 @@ export function App ({fullSet, shortUri, onLongUriSubmit, onLongUriChange, longU
 
 function GetFullForm({shortUri,onLongUriSubmit,onLongUriChange,longUri, onCloudinarySubmit, onCloudinaryChange}:IProps):any {
     return (
-        <div>
+        <div id="FullFrom">
             <GetLongForm onLongUriSubmit={ onLongUriSubmit}
                           onLongUriChange = {onLongUriChange}
                           longUri= {longUri}
@@ -35,7 +34,7 @@ function GetFullForm({shortUri,onLongUriSubmit,onLongUriChange,longUri, onCloudi
 
 function GetLongForm({onLongUriSubmit,onLongUriChange,longUri, onCloudinarySubmit, onCloudinaryChange}:IProps):any {
     return  (
-        <div>
+        <div id="LessForm">
             <LongUriFormContainer onLongUriSubmit={onLongUriSubmit} onLongUriChange={onLongUriChange} longUri={longUri} />
             <FileUploadContainer />
         </div>);
