@@ -1,12 +1,19 @@
-﻿namespace UriReduction.Data.DataBaseConnectionConfig
+﻿using Microsoft.Extensions.Configuration;
+
+namespace UriReduction.Data.DataBaseConnectionConfig
 {
     public class MsSqlConnectionConfiguration:IDataBaseConnectionConfiguration
      {
-        private const string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=UriReduction.DataBase;Integrated Security=True;";
+        
+        private readonly string _connectionString;
 
+         public MsSqlConnectionConfiguration(IConfiguration configuration)
+         {
+             _connectionString = configuration["DataBaseConncetion"];
+         }
         public string GetConnectionString()
         {
-            return ConnectionString;
+            return _connectionString;
         }
      }
 }

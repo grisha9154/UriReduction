@@ -65,4 +65,7 @@
     <Build Include="UriReduction\UriReduction.sql" />
     <Build Include="UriReduction\Tables\AssociatedUri.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="UriReduction.DataBase.refactorlog" />
+  </ItemGroup>
 </Project>

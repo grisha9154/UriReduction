@@ -6,5 +6,6 @@ namespace UriReduction.Data
     {
         AssociatedUri GetElementByShortUri(string shortUri);
         AssociatedUri GetElementByLongUri(string longUri);
+        int UpdateElementRequestFieldById(int newRequest, int id);
     }
 }

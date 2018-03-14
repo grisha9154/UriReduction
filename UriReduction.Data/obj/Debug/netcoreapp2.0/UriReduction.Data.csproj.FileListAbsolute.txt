@@ -9,3 +9,5 @@ D:\UriReduction\UriReduction.Data\obj\Debug\netcoreapp2.0\UriReduction.Data.Asse
 D:\UriReduction\UriReduction.Data\obj\Debug\netcoreapp2.0\UriReduction.Data.AssemblyInfo.cs
 D:\UriReduction\UriReduction.Data\obj\Debug\netcoreapp2.0\UriReduction.Data.dll
 D:\UriReduction\UriReduction.Data\obj\Debug\netcoreapp2.0\UriReduction.Data.pdb
+D:\UriReduction\UriReduction.Data\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\UriReduction\UriReduction.Data\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Configuration.Abstractions.xml

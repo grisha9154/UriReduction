@@ -60,12 +60,25 @@ namespace UriReduction.Data
             List<AssociatedUri> uri;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                var sqlQueiry = "SELECT TOP 1 * FROM [UriReduction].[AssociatedUri] where LongUri=@longUri;";
-                uri = db.Query<AssociatedUri>(sqlQueiry, new { longUri }).ToList();
+                var sqlQuery = "SELECT TOP 1 * FROM [UriReduction].[AssociatedUri] where LongUri=@longUri;";
+                uri = db.Query<AssociatedUri>(sqlQuery, new { longUri }).ToList();
             }
 
             return CheckListOfUri(uri);
         }
+
+        public int UpdateElementRequestFieldById(int requestCount, int id)
+        {
+            int result;
+            using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
+            {
+                var sqlQuery = "UPDATE [UriReduction].[AssociatedUri] set RequestCount = @requestCount  where Id = @id";
+                result = db.Execute(sqlQuery, new {id, requestCount });
+            }
+
+            return result;
+        }
+
         public int CreatNewElement(AssociatedUri uri)
         {
             int result;
