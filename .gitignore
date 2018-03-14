@@ -5,3 +5,4 @@ UriReduction.DataBase/UriReduction.DataBase.jfm
 /UriReduction.API/wwwroot/node_modules
 /UriReduction.API/wwwroot/public
 bin
+obj
