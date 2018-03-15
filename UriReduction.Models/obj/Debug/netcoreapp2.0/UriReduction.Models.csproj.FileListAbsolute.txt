@@ -7,3 +7,7 @@ D:\UriReduction\UriReduction.Models\obj\Debug\netcoreapp2.0\UriReduction.Models.
 D:\UriReduction\UriReduction.Models\obj\Debug\netcoreapp2.0\UriReduction.Models.dll
 D:\UriReduction\UriReduction.Models\obj\Debug\netcoreapp2.0\UriReduction.Models.pdb
 D:\UriReduction\UriReduction.Models\obj\Debug\netcoreapp2.0\UriReduction.Models.csprojResolveAssemblyReference.cache
+D:\UriReduction\UriReduction.Models\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.dll
+D:\UriReduction\UriReduction.Models\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.xml
+D:\UriReduction\UriReduction.Models\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Core.dll
+D:\UriReduction\UriReduction.Models\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Core.xml

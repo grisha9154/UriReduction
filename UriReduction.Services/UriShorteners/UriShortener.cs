@@ -1,5 +1,5 @@
 ﻿using System;
-using UriReduction.Data;
+using UriReduction.Data.AssociatedUriRepositories;
 using UriReduction.Models;
 using UriReduction.Services.HashGenerators;
 

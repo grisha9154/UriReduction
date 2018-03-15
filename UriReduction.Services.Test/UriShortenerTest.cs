@@ -1,5 +1,6 @@
 ﻿using Moq;
 using UriReduction.Data;
+using UriReduction.Data.AssociatedUriRepositories;
 using UriReduction.Models;
 using UriReduction.Services.HashGenerators;
 using UriReduction.Services.UriShorteners;

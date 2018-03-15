@@ -1,4 +1,5 @@
 ﻿using UriReduction.Data;
+using UriReduction.Data.AssociatedUriRepositories;
 
 namespace UriReduction.Services.ShortUriDecoders
 {

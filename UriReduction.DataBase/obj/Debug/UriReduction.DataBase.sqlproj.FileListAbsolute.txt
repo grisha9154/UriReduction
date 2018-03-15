@@ -3,3 +3,7 @@ D:\UriReduction\UriReduction.DataBase\bin\Debug\UriReduction.DataBase.dll
 D:\UriReduction\UriReduction.DataBase\bin\Debug\UriReduction.DataBase.pdb
 D:\UriReduction\UriReduction.DataBase\obj\Debug\UriReduction.DataBase.dll
 D:\UriReduction\UriReduction.DataBase\obj\Debug\UriReduction.DataBase.pdb
+D:\UriReduction\UriReduction.DataBase\obj\Debug\Model.xml
+D:\UriReduction\UriReduction.DataBase\obj\Debug\refactor.xml
+D:\UriReduction\UriReduction.DataBase\obj\Debug\postdeploy.sql
+D:\UriReduction\UriReduction.DataBase\obj\Debug\predeploy.sql

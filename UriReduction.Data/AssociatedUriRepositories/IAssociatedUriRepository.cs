@@ -1,6 +1,6 @@
 ﻿using UriReduction.Models;
 
-namespace UriReduction.Data
+namespace UriReduction.Data.AssociatedUriRepositories
 {
         public interface IAssociatedUriRepository: IRepository<AssociatedUri>
     {

@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Moq;
 using UriReduction.API.Controllers;
-using UriReduction.Models;
 using UriReduction.Services.ImageUpload;
 using UriReduction.Services.UriShorteners;
 using Xunit;

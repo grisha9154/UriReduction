@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UriReduction.Services.ImageUpload;
 using UriReduction.Services.UriShorteners;
@@ -17,6 +18,7 @@ namespace UriReduction.API.Controllers
         }
         [HttpPost]
         [Route("/image")]
+        [AllowAnonymous]
         public string Post(IFormFile file)
         {
             var longUri = _uploader.UploadImage(file);
