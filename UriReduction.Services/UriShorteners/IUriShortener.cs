@@ -2,6 +2,6 @@
 {
     public interface IUriShortener
     {
-        string Shorten(string longUri);
+        string Shorten(string longUri,int userId);
     }
 }

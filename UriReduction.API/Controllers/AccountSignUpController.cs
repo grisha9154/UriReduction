@@ -23,6 +23,7 @@ namespace UriReduction.API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody]RegistrationModel model)
         {
+            
             var result =  await _userManager.CreateAsync(new UserAccount{UserName = model.Login},model.Password);
             if (!result.Succeeded) return Unauthorized();
             await _signInManager.SignInAsync(new UserAccount { UserName = model.Login}, false);

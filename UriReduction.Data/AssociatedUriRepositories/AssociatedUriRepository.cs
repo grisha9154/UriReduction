@@ -84,7 +84,7 @@ namespace UriReduction.Data.AssociatedUriRepositories
             int result;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                var sqlQuery = "INSERT INTO [UriReduction].[AssociatedUri] (LongUri, ShortUri) VALUES(@LongUri,@ShortUri);";
+                var sqlQuery = "INSERT INTO [UriReduction].[AssociatedUri] (LongUri, ShortUri,UserId) VALUES(@LongUri,@ShortUri,@UserId);";
                 result = db.Execute(sqlQuery, uri);
             }
             return result;

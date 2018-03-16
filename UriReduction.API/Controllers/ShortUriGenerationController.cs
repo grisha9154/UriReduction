@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -26,10 +27,10 @@ namespace UriReduction.API.Controllers
             return View("~/wwwroot/index.html");
         }
         [HttpPost]
-        public string Post( [Microsoft.AspNetCore.Mvc.FromBody]AssociatedUri longUri)
+        public async Task<string> Post( [Microsoft.AspNetCore.Mvc.FromBody]AssociatedUri longUri)
         {
-            var shortUri = _shortener.Shorten(longUri.LongUri);
-
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var shortUri = _shortener.Shorten(longUri.LongUri,user.Id);
             return "SUGC/"+ shortUri;
         }
     }
