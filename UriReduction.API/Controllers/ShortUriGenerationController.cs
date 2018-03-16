@@ -36,7 +36,7 @@ namespace UriReduction.API.Controllers
                 user = await _userManager.FindByNameAsync(User.Identity.Name);
             }
             var shortUri = _shortener.Shorten(longUri.LongUri,user.Id);
-            return "SUGC/"+ shortUri;
+            return "/SUGC/" + shortUri;
         }
     }
 }
