@@ -14,4 +14,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="RequestCount" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="95259a95-2ebd-4a3d-9822-af1c78a3db1b" ChangeDateTime="03/15/2018 12:19:03">
+    <Property Name="ElementName" Value="[UriReduction].[User].[Login]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[UriReduction].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserName" />
+  </Operation>
 </Operations>

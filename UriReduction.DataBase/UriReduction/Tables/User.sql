@@ -1,0 +1,7 @@
+﻿CREATE TABLE [UriReduction].[User]
+(
+	[Id] INT IDENTITY(0,1) NOT NULL PRIMARY KEY, 
+    [UserName] NVARCHAR(30) NOT NULL, 
+    [Password] NVARCHAR(128) NOT NULL,
+	 UNIQUE NONCLUSTERED ([UserName] ASC)
+)

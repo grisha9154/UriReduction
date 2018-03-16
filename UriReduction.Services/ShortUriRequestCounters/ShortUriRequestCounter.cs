@@ -1,4 +1,5 @@
 ﻿using UriReduction.Data;
+using UriReduction.Data.AssociatedUriRepositories;
 using UriReduction.Models;
 
 namespace UriReduction.Services.ShortUriRequestCounters

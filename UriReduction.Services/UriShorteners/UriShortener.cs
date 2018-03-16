@@ -1,5 +1,5 @@
 ﻿using System;
-using UriReduction.Data;
+using UriReduction.Data.AssociatedUriRepositories;
 using UriReduction.Models;
 using UriReduction.Services.HashGenerators;
 
@@ -14,21 +14,21 @@ namespace UriReduction.Services.UriShorteners
             _repository = repository;
             _hashGeneretor = hashGeneretor;
         }
-        public string Shorten(string longUri)
+        public string Shorten(string longUri,int userId)
         {
             var associatedUri = ReturnAssociatedUriIfExist(longUri);
-            return associatedUri.ShortUri ?? CreateNewAssociatedUri(longUri);
+            return associatedUri.ShortUri ?? CreateNewAssociatedUri(longUri,userId);
         }
-        private string CreateNewAssociatedUri(string longUri)
+        private string CreateNewAssociatedUri(string longUri,int userId)
         {
             var shortUri = _hashGeneretor.Generate(longUri,10);
             try
             {
-                _repository.CreatNewElement(new AssociatedUri{ LongUri = longUri, ShortUri = shortUri });
+                _repository.CreatNewElement(new AssociatedUri{ LongUri = longUri, ShortUri = shortUri, UserId = userId});
             }
             catch (Exception)
             {
-                shortUri = CreateNewAssociatedUri(longUri);
+                shortUri = CreateNewAssociatedUri(longUri,userId);
             }
 
             return shortUri;

@@ -6,7 +6,7 @@ using Dapper;
 using UriReduction.Data.DataBaseConnectionConfig;
 using UriReduction.Models;
 
-namespace UriReduction.Data
+namespace UriReduction.Data.AssociatedUriRepositories
 {
     public class AssociatedUriRepository: IAssociatedUriRepository
     {
@@ -38,8 +38,8 @@ namespace UriReduction.Data
             List<AssociatedUri> uri;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                var sqlQueiry = "SELECT * FROM [UriReduction].[AssociatedUri] where ShortUri=@shortUri;";
-                uri = db.Query<AssociatedUri>(sqlQueiry, new { shortUri }).ToList();
+                var sqlQuery = "SELECT * FROM [UriReduction].[AssociatedUri] where ShortUri=@shortUri;";
+                uri = db.Query<AssociatedUri>(sqlQuery, new { shortUri }).ToList();
             }
 
             return CheckListOfUri(uri);
@@ -84,7 +84,7 @@ namespace UriReduction.Data
             int result;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                var sqlQuery = "INSERT INTO [UriReduction].[AssociatedUri] (LongUri, ShortUri) VALUES(@LongUri,@ShortUri);";
+                var sqlQuery = "INSERT INTO [UriReduction].[AssociatedUri] (LongUri, ShortUri,UserId) VALUES(@LongUri,@ShortUri,@UserId);";
                 result = db.Execute(sqlQuery, uri);
             }
             return result;
