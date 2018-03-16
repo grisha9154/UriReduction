@@ -25,14 +25,15 @@ namespace UriReduction.API.Controllers
         [HttpPost]
         [Route("/image")]
         [AllowAnonymous]
-        public async Task<string> Post(IFormFile file)
+        public async Task<JsonResult> Post(IFormFile file)
         {
-            var longUri = _uploader.UploadImage(file);
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            var shortUri = _shortener.Shorten(longUri, user.Id);
-            return "{" +
-                   "\"shortUri\":" + "\"SUGC/" + $"{shortUri}\""+
-                   "}";
+            var longUri = _uploader.UploadImage(file); UserAccount user = new UserAccount { Id = null };
+            if (User.Identity.Name != null)
+            {
+                user = await _userManager.FindByNameAsync(User.Identity.Name);
+            }
+            var shortUri ="/SUGC/"+ _shortener.Shorten(longUri, user.Id);
+            return Json(new {shortUri});
         }
     }
 
