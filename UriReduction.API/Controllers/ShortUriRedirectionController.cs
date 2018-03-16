@@ -20,6 +20,7 @@ namespace UriReduction.API.Controllers
         }
         [HttpGet]
         [Route("{shortUri}")]
+        [AllowAnonymous]
         public IActionResult Get(string shortUri)
         {
             var longUri= Redirect(_rederection.DecipherShortUri(shortUri));
