@@ -6,10 +6,10 @@ import { uriReducer } from "./reducers/index";
 import {Provider} from "react-redux";
 import AppContainer from "./components/containers/appContainer";
 import {IProps} from "./components/props";
-import {reducer} from "redux-file-upload";
+import fileUploadReducer from "./reducers/fileUploadReducer";
 
 
-let reducerRoot:any = combineReducers({uriReducer,fileUpload:reducer});
+let reducerRoot:any = combineReducers({uriReducer,fileUpload:fileUploadReducer});
 let store:any=createStore(reducerRoot,applyMiddleware(thunk));
 
 ReactDOM.render(
