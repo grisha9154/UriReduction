@@ -14,12 +14,12 @@ namespace UriReduction.Services.UriShorteners
             _repository = repository;
             _hashGeneretor = hashGeneretor;
         }
-        public string Shorten(string longUri,int userId)
+        public string Shorten(string longUri,int? userId)
         {
             var associatedUri = ReturnAssociatedUriIfExist(longUri);
             return associatedUri.ShortUri ?? CreateNewAssociatedUri(longUri,userId);
         }
-        private string CreateNewAssociatedUri(string longUri,int userId)
+        private string CreateNewAssociatedUri(string longUri,int? userId)
         {
             var shortUri = _hashGeneretor.Generate(longUri,10);
             try

@@ -27,9 +27,14 @@ namespace UriReduction.API.Controllers
             return View("~/wwwroot/index.html");
         }
         [HttpPost]
+        [AllowAnonymous]
         public async Task<string> Post( [Microsoft.AspNetCore.Mvc.FromBody]AssociatedUri longUri)
         {
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            UserAccount user = new UserAccount{Id = null};
+            if (User.Identity.Name != null)
+            {
+                user = await _userManager.FindByNameAsync(User.Identity.Name);
+            }
             var shortUri = _shortener.Shorten(longUri.LongUri,user.Id);
             return "SUGC/"+ shortUri;
         }
