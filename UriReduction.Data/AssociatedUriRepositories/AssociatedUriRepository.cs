@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
+using Microsoft.Extensions.Primitives;
 using UriReduction.Data.DataBaseConnectionConfig;
 using UriReduction.Models;
 
@@ -65,6 +66,18 @@ namespace UriReduction.Data.AssociatedUriRepositories
             }
 
             return CheckListOfUri(uri);
+        }
+
+        public List<AssociatedUri> GetAllElementByUserName(string userName)
+        {
+            List<AssociatedUri> uri;
+            using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
+            {
+                var sqlQuery = "select * from [UriReduction].[AssociatedUri] as [uri], [UriReduction].[User] as [user] where  [user].UserName =@userName and [uri].UserId = [user].Id;";
+                uri = db.Query<AssociatedUri>(sqlQuery, new { userName }).ToList();
+            }
+
+            return uri;
         }
 
         public int UpdateElementRequestFieldById(int requestCount, int id)
