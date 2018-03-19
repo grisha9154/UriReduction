@@ -41,9 +41,6 @@ namespace UriReduction.Services.ShortUriRequestCounters
                         body:body);
                 }
             }
-           /* AssociatedUri uri = _repository.GetElementByShortUri(shortUri);
-            _repository.UpdateElementRequestFieldById(uri.RequestCount+1,uri.Id);
-            uri = _repository.GetElementById(uri.Id);*/
             return 1;
         }
     }

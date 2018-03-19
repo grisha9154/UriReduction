@@ -17,6 +17,10 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "UriReduction.DataBase", "Ur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UriReduction.Models", "UriReduction.Models\UriReduction.Models.csproj", "{578D496F-C6D1-4438-86C8-501D01BFF204}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UriReduction.WindowsServices", "UriReduction.WindowsServices\UriReduction.WindowsServices.csproj", "{1FFAA241-448B-4B00-9F35-3C3A5EBEC813}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Receive", "..\Receive\Receive.csproj", "{0AA40DF6-959D-4314-8787-E6953D6CC988}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,14 @@ Global
 		{578D496F-C6D1-4438-86C8-501D01BFF204}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{578D496F-C6D1-4438-86C8-501D01BFF204}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{578D496F-C6D1-4438-86C8-501D01BFF204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FFAA241-448B-4B00-9F35-3C3A5EBEC813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FFAA241-448B-4B00-9F35-3C3A5EBEC813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FFAA241-448B-4B00-9F35-3C3A5EBEC813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FFAA241-448B-4B00-9F35-3C3A5EBEC813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AA40DF6-959D-4314-8787-E6953D6CC988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AA40DF6-959D-4314-8787-E6953D6CC988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AA40DF6-959D-4314-8787-E6953D6CC988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AA40DF6-959D-4314-8787-E6953D6CC988}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
