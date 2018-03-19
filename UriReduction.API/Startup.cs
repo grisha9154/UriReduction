@@ -18,6 +18,7 @@ using UriReduction.Services.ImageUpload;
 using UriReduction.Services.ShortUriDecoders;
 using UriReduction.Services.ShortUriRequestCounters;
 using UriReduction.Services.UriShorteners;
+using UriReduction.Services.UserShoertUriStatistics;
 
 namespace UriReduction.API
 {
@@ -38,7 +39,7 @@ namespace UriReduction.API
             services.AddTransient<IUserStore<UserAccount>,UserRepository>();
             services.AddTransient<IRoleStore<AccountRole>, AccountRoleRepository>();
 
-
+            services.AddTransient<IUserShortUriStatistics,UserShortUriStatistics>();
             services.AddTransient<IShortUriRequestCounter, ShortUriRequestCounter>();
             services.AddTransient<IImageUploader,ImageUploader>();
             services.AddTransient<IUriShortener, UriShortener>();
