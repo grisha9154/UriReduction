@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +27,7 @@ namespace UriReduction.API.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        public async Task<string> Post( [Microsoft.AspNetCore.Mvc.FromBody]AssociatedUri longUri)
+        public async Task<string> Post( [FromBody]AssociatedUri longUri)
         {
             UserAccount user = new UserAccount{Id = null};
             if (User.Identity.Name != null)
