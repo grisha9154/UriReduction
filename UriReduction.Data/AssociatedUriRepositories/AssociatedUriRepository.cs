@@ -36,14 +36,14 @@ namespace UriReduction.Data.AssociatedUriRepositories
         }
         public AssociatedUri GetElementByShortUri(string shortUri)
         {
-            List<AssociatedUri> uri;
+            AssociatedUri uri;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
                 var sqlQuery = "SELECT * FROM [UriReduction].[AssociatedUri] where ShortUri=@shortUri;";
-                uri = db.Query<AssociatedUri>(sqlQuery, new { shortUri }).ToList();
+                uri = db.QuerySingleOrDefault<AssociatedUri>(sqlQuery, new { shortUri });
             }
 
-            return CheckListOfUri(uri);
+            return uri;
         }
         private AssociatedUri CheckListOfUri(List<AssociatedUri> list)
         {
@@ -67,7 +67,6 @@ namespace UriReduction.Data.AssociatedUriRepositories
 
             return CheckListOfUri(uri);
         }
-
         public List<AssociatedUri> GetAllElementByUserName(string userName)
         {
             List<AssociatedUri> uri;
@@ -79,7 +78,6 @@ namespace UriReduction.Data.AssociatedUriRepositories
 
             return uri;
         }
-
         public int UpdateElementRequestFieldById(int requestCount, int id)
         {
             int result;
@@ -91,7 +89,6 @@ namespace UriReduction.Data.AssociatedUriRepositories
 
             return result;
         }
-
         public int CreatNewElement(AssociatedUri uri)
         {
             int result;
