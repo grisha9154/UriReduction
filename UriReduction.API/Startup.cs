@@ -37,6 +37,8 @@ namespace UriReduction.API
 
             services.AddTransient<IUserStore<UserAccount>,UserRepository>();
             services.AddTransient<IRoleStore<AccountRole>, AccountRoleRepository>();
+
+
             services.AddTransient<IShortUriRequestCounter, ShortUriRequestCounter>();
             services.AddTransient<IImageUploader,ImageUploader>();
             services.AddTransient<IUriShortener, UriShortener>();

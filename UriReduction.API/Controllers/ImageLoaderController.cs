@@ -1,8 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Primitives;
 using UriReduction.Data.UserRepositories;
 using UriReduction.Models;
 using UriReduction.Services.ImageUpload;
@@ -27,7 +30,8 @@ namespace UriReduction.API.Controllers
         [AllowAnonymous]
         public async Task<JsonResult> Post(IFormFile file)
         {
-            var longUri = _uploader.UploadImage(file); UserAccount user = new UserAccount { Id = null };
+            var longUri = _uploader.UploadImage(file);
+            UserAccount user = new UserAccount { Id = null };
             if (User.Identity.Name != null)
             {
                 user = await _userManager.FindByNameAsync(User.Identity.Name);
