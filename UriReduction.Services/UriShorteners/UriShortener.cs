@@ -22,16 +22,21 @@ namespace UriReduction.Services.UriShorteners
         private string CreateNewAssociatedUri(string longUri,int? userId)
         {
             var shortUri = _hashGeneretor.Generate(longUri,10);
-            try
+            if (IsShortUriExist(shortUri))
             {
-                _repository.CreatNewElement(new AssociatedUri{ LongUri = longUri, ShortUri = shortUri, UserId = userId});
+                shortUri = CreateNewAssociatedUri(longUri, userId);
             }
-            catch (Exception)
+            else
             {
-                shortUri = CreateNewAssociatedUri(longUri,userId);
+                _repository.CreatNewElement(new AssociatedUri { LongUri = longUri, ShortUri = shortUri, UserId = userId });
             }
-
             return shortUri;
+        }
+
+        private bool IsShortUriExist(string shortUri)
+        {
+           var uri = _repository.GetElementByShortUri(shortUri);
+            return uri != null;
         }
         private AssociatedUri ReturnAssociatedUriIfExist(string longUri)
         {
