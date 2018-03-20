@@ -9,5 +9,6 @@ namespace UriReduction.Data.AssociatedUriRepositories
         AssociatedUri GetElementByLongUri(string longUri);
         int UpdateElementRequestFieldById(int newRequest, int id);
         List<AssociatedUri> GetAllElementByUserName(string userName);
+        int DeleteElement(string shortUri);
     }
 }

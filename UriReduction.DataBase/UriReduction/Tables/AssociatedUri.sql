@@ -5,7 +5,8 @@
     [ShortUri] NVARCHAR(10) NOT NULL,
 	[RequestCount] INT NOT NULL DEFAULT 0, 
     [UserId] INT NULL, 
-	CONSTRAINT UserId FOREIGN KEY (UserId)     
+	[DeletedAt] DATE NULL DEFAULT null, 
+    CONSTRAINT UserId FOREIGN KEY (UserId)     
     REFERENCES [UriReduction].[User] (Id),
     UNIQUE NONCLUSTERED ([LongUri] ASC),
 	UNIQUE NONCLUSTERED ([ShortUri] ASC)

@@ -21,7 +21,7 @@ namespace UriReduction.Data.AssociatedUriRepositories
             List<AssociatedUri> uri;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                uri = db.Query<AssociatedUri>("SELECT * FROM [UriReduction].[AssociatedUri] where id = @id ", new {id}).ToList();
+                uri = db.Query<AssociatedUri>("SELECT * FROM [UriReduction].[AssociatedUri] where id = @id and DeletedAt is null", new {id}).ToList();
             }
             return CheckListOfUri(uri);
         }
@@ -30,7 +30,7 @@ namespace UriReduction.Data.AssociatedUriRepositories
             List<AssociatedUri> uris;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                uris = db.Query<AssociatedUri>("SELECT * FROM [UriReduction].[AssociatedUri]").ToList();
+                uris = db.Query<AssociatedUri>("SELECT * FROM [UriReduction].[AssociatedUri] where DeletedAt is null").ToList();
             }
             return uris;
         }
@@ -39,7 +39,7 @@ namespace UriReduction.Data.AssociatedUriRepositories
             AssociatedUri uri;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                var sqlQuery = "SELECT * FROM [UriReduction].[AssociatedUri] where ShortUri=@shortUri;";
+                var sqlQuery = "SELECT * FROM [UriReduction].[AssociatedUri] where ShortUri=@shortUri and DeletedAt is null;";
                 uri = db.QuerySingleOrDefault<AssociatedUri>(sqlQuery, new { shortUri });
             }
 
@@ -61,7 +61,7 @@ namespace UriReduction.Data.AssociatedUriRepositories
             List<AssociatedUri> uri;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                var sqlQuery = "SELECT TOP 1 * FROM [UriReduction].[AssociatedUri] where LongUri=@longUri;";
+                var sqlQuery = "SELECT TOP 1 * FROM [UriReduction].[AssociatedUri] where LongUri=@longUri and DeletedAt is null;";
                 uri = db.Query<AssociatedUri>(sqlQuery, new { longUri }).ToList();
             }
 
@@ -83,7 +83,7 @@ namespace UriReduction.Data.AssociatedUriRepositories
             int result;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                var sqlQuery = "UPDATE [UriReduction].[AssociatedUri] set RequestCount = @requestCount  where Id = @id";
+                var sqlQuery = "UPDATE [UriReduction].[AssociatedUri] set RequestCount = @requestCount  where Id = @id and DeletedAt is null";
                 result = db.Execute(sqlQuery, new {id, requestCount });
             }
 
@@ -104,8 +104,18 @@ namespace UriReduction.Data.AssociatedUriRepositories
             int result;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                var sqlQuery = "DELETE from [UriReduction].[AssociatedUri] where id = @id ";
+                var sqlQuery = "UPDATE [UriReduction].[AssociatedUri] set DeletedAt = GETDATE() where Id=@id;";
                 result = db.Execute(sqlQuery, new { id });
+            }
+            return result;
+        }
+        public int DeleteElement(string shortUri)
+        {
+            int result;
+            using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
+            {
+                var sqlQuery = "UPDATE [UriReduction].[AssociatedUri] set DeletedAt = GETDATE() where shortUri=@shortUri;";
+                result = db.Execute(sqlQuery, new { shortUri });
             }
             return result;
         }
