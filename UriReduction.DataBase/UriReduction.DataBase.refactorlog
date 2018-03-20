@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4d1ee12e-ad3d-45e3-a26f-59b78caabb51" ChangeDateTime="03/14/2018 13:19:14">
+    <Property Name="ElementName" Value="[UriReduction].[AssociatedUri].[Po]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[UriReduction].[AssociatedUri]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Requests" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9159b26f-8207-41d6-8559-9c26a5717136" ChangeDateTime="03/14/2018 13:37:55">
+    <Property Name="ElementName" Value="[UriReduction].[AssociatedUri].[Requests]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[UriReduction].[AssociatedUri]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RequestCount" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="95259a95-2ebd-4a3d-9822-af1c78a3db1b" ChangeDateTime="03/15/2018 12:19:03">
+    <Property Name="ElementName" Value="[UriReduction].[User].[Login]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[UriReduction].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9a61b313-2607-49f9-8d97-becb0c72cda5" ChangeDateTime="03/19/2018 14:22:37">
+    <Property Name="ElementName" Value="[UriReduction].[AssociatedUri].[IsDeleted]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[UriReduction].[AssociatedUri]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DeletedAt" />
+  </Operation>
+</Operations>

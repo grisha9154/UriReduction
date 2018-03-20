@@ -3,7 +3,7 @@ using UriReduction.Models;
 
 namespace UriReduction.Data.UserRepositories
 {
-    public interface IUserRepository: IUserStore<UserAccount>, IUserPasswordStore<UserAccount>
+    public interface IUserRepository: IUserStore<UserAccount>, IUserPasswordStore<UserAccount>, IUserRoleStore<UserAccount>
     {
     }
 }

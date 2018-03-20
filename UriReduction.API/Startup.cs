@@ -40,6 +40,7 @@ namespace UriReduction.API
             services.AddTransient<IUserStore<UserAccount>,UserRepository>();
             services.AddTransient<IRoleStore<AccountRole>, AccountRoleRepository>();
 
+            services.AddTransient<IUserRoleRepository, UserRoleRepository>();
             services.AddTransient<IAssociatedUriDeleteService,AssociatedUriDeleteService>();
             services.AddTransient<IUserShortUriStatistics,UserShortUriStatistics>();
             services.AddTransient<IShortUriRequestCounter, ShortUriRequestCounter>();

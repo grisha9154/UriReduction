@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using UriReduction.Data.AssociatedUriRepositories;
 using UriReduction.Data.UserRepositories;
+using UriReduction.Models;
 
 namespace UriReduction.Services.AssociatedUriDeleteService
 {
@@ -33,7 +35,7 @@ namespace UriReduction.Services.AssociatedUriDeleteService
         public async Task<bool> IsUriBelowUser(string shortUri, string userName)
         {
             var uri = _uriRepository.GetElementByShortUri(shortUri);
-            var user = await _userRepository.FindByNameAsync(userName,new CancellationToken());
+            var user = await ((IUserStore<UserAccount>)_userRepository).FindByNameAsync(userName,new CancellationToken());
             return uri.UserId == user.Id;
         }
     }

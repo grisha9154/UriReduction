@@ -16,7 +16,7 @@ namespace UriReduction.API.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         public JsonResult Get()
         {
             var result = _statistics.GetStatistics(User.Identity.Name).ToArray();
