@@ -12,20 +12,22 @@ namespace UriReduction.API.Controllers
     {
         private readonly UserManager<UserAccount> _userManager;
         private readonly SignInManager<UserAccount> _signInManager;
+        private readonly RoleManager<AccountRole> _roleManager;
 
-        public AccountSignUpController(SignInManager<UserAccount> signInManager, UserManager<UserAccount> userManager)
+        public AccountSignUpController(SignInManager<UserAccount> signInManager, UserManager<UserAccount> userManager, RoleManager<AccountRole> roleManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
          
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody]RegistrationModel model)
         {
-            
             var result =  await _userManager.CreateAsync(new UserAccount{UserName = model.Login},model.Password);
             if (!result.Succeeded) return Unauthorized();
+            await _userManager.AddToRoleAsync(await _userManager.FindByNameAsync(model.Login), "User");
             await _signInManager.SignInAsync(new UserAccount { UserName = model.Login}, false);
             return Ok();
         }

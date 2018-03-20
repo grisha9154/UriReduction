@@ -6,3 +6,4 @@ UriReduction.DataBase/UriReduction.DataBase.jfm
 /UriReduction.API/wwwroot/public
 bin
 obj
+.refactorlog

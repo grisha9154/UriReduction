@@ -13,6 +13,7 @@ using UriReduction.Data.AssociatedUriRepositories;
 using UriReduction.Data.DataBaseConnectionConfig;
 using UriReduction.Data.UserRepositories;
 using UriReduction.Models;
+using UriReduction.Services.AssociatedUriDeleteService;
 using UriReduction.Services.HashGenerators;
 using UriReduction.Services.ImageUpload;
 using UriReduction.Services.ShortUriDecoders;
@@ -39,6 +40,8 @@ namespace UriReduction.API
             services.AddTransient<IUserStore<UserAccount>,UserRepository>();
             services.AddTransient<IRoleStore<AccountRole>, AccountRoleRepository>();
 
+            services.AddTransient<IUserRoleRepository, UserRoleRepository>();
+            services.AddTransient<IAssociatedUriDeleteService,AssociatedUriDeleteService>();
             services.AddTransient<IUserShortUriStatistics,UserShortUriStatistics>();
             services.AddTransient<IShortUriRequestCounter, ShortUriRequestCounter>();
             services.AddTransient<IImageUploader,ImageUploader>();

@@ -11,10 +11,12 @@ namespace UriReduction.API.Controllers
     [Route("signin")]
     public class AccountSignInController : Controller
     {
+        private readonly UserManager<UserAccount> _userManager;
         private readonly SignInManager<UserAccount> _signInManager;
-        public AccountSignInController( SignInManager<UserAccount> signInManager)
+        public AccountSignInController( SignInManager<UserAccount> signInManager, UserManager<UserAccount> userManager)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         [HttpPost]
@@ -23,7 +25,7 @@ namespace UriReduction.API.Controllers
         {
             var result = await _signInManager.PasswordSignInAsync(new UserAccount{UserName = model.Login}, model.Password, false,false);
             if (!result.Succeeded) return Unauthorized();
-            await _signInManager.SignInAsync(new UserAccount { UserName = model.Login }, false);
+            await _signInManager.SignInAsync(await _userManager.FindByNameAsync(model.Login), false);
             return Ok();
         }
     }
