@@ -5,6 +5,7 @@ import {App} from "../performance/app";
 import {UriAction,setShortUri,changeLongUri} from "../../actionsCreator/index";
 import { IStoreState } from "../../types/index";
 import RegistrationFrom from "../containers/registrationFromContainer";
+import LoginForm from "../containers/loginFormContainer";
 import {BrowserRouter,Route,Switch,Link} from "react-router-dom";
 
 class AppContainer extends  React.Component<any, object> {
@@ -25,7 +26,6 @@ class Router extends React.Component<any, object> {
         super(props);
     }
     render():any {
-        console.log(this.props);
         return (
         <BrowserRouter>
             <Switch>
@@ -35,10 +35,11 @@ class Router extends React.Component<any, object> {
                                                             longUri={this.props.longUri}
                                                             onLongUriChange={this.props.onLongUriChange}
                                                             onLongUriSubmit = {this.props.onLongUriSubmit}/>
-                                                        <Link to="/signup">signUp</Link>
+                                                        <Link to="/signup">SignUp</Link><br/>
+                                                        <Link to="/signin">SignIn</Link>
                                                         </div> } />
                 <Route exact path="/signup" children={()=> <RegistrationFrom />} />
-                <Route exact path="/signin" children={()=> <div>SignIn is not ready</div>} />
+                <Route exact path="/signin" children={()=> <LoginForm />} />
             </Switch>
         </BrowserRouter>);
     }

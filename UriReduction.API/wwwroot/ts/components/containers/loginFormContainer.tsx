@@ -1,5 +1,5 @@
 import * as React from "react";
-import RegistrationForm from "../performance/registrationForm";
+import LoginForm from "../performance/loginForm";
 import * as $ from "jquery";
 
 class RegistrationContainer extends React.Component {
@@ -10,9 +10,8 @@ class RegistrationContainer extends React.Component {
     onSubmit (event:any): void {
         event.preventDefault();
         let data: string = JSON.stringify({Login:event.target.UserName.value,Password:event.target.Password.value});
-        if(event.target.Password.value !== event.target.ConfirmPassword.value) { return; }
         $.ajax({
-            url:"/signup",
+            url:"/signin",
             data:data,
             method:"POST",
             contentType:"application/json",
@@ -24,7 +23,7 @@ class RegistrationContainer extends React.Component {
         });
     }
     render(): any {
-        return <RegistrationForm onSubmit={this.onSubmit} />;
+        return <LoginForm onSubmit={this.onSubmit} />;
     }
 }
 export default RegistrationContainer;

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function RegistrationForm (props:any): any {
+function LoginForm (props:any): any {
     return (
         <div>
             <form onSubmit={props.onSubmit}>
@@ -8,11 +8,9 @@ function RegistrationForm (props:any): any {
                 <input type="text" name="UserName" /><br/>
                 <label>Password </label>
                 <input type="password" name="Password" /><br/>
-                <label>Confirm Password </label>
-                <input type="password"  name="ConfirmPassword" /><br />
                 <input type="submit" />
             </form>
         </div>);
 }
 
-export default RegistrationForm;
+export default LoginForm;
