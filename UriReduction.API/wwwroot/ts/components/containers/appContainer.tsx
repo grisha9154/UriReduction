@@ -4,20 +4,46 @@ import {IProps} from "../props";
 import {App} from "../performance/app";
 import {UriAction,setShortUri,changeLongUri} from "../../actionsCreator/index";
 import { IStoreState } from "../../types/index";
+import RegistrationFrom from "../containers/registrationFromContainer";
+import {BrowserRouter,Route,Switch,Link} from "react-router-dom";
 
 class AppContainer extends  React.Component<any, object> {
     constructor(props:any) {
         super(props);
     }
     render():any {
-        return <App
-                    fullSet={this.props.uriReducer.fullSet}
-                    shortUri={this.props.uriReducer.shortUri}
-                    longUri={this.props.uriReducer.longUri}
-                    onLongUriChange={this.props.onLongUriChange}
-                    onLongUriSubmit = {this.props.onLongUriSubmit} />;
+        return <Router fullSet={this.props.uriReducer.fullSet}
+        shortUri={this.props.uriReducer.shortUri}
+        longUri={this.props.uriReducer.longUri}
+        onLongUriChange={this.props.onLongUriChange}
+        onLongUriSubmit = {this.props.onLongUriSubmit} />;
     }
 }
+
+class Router extends React.Component<any, object> {
+    constructor(props:any) {
+        super(props);
+    }
+    render():any {
+        console.log(this.props);
+        return (
+        <BrowserRouter>
+            <Switch>
+                <Route exact path="/" children={()=> <div>
+                                                        <App fullSet={this.props.fullSet}
+                                                            shortUri={this.props.shortUri}
+                                                            longUri={this.props.longUri}
+                                                            onLongUriChange={this.props.onLongUriChange}
+                                                            onLongUriSubmit = {this.props.onLongUriSubmit}/>
+                                                        <Link to="/signup">signUp</Link>
+                                                        </div> } />
+                <Route exact path="/signup" children={()=> <RegistrationFrom />} />
+                <Route exact path="/signin" children={()=> <div>SignIn is not ready</div>} />
+            </Switch>
+        </BrowserRouter>);
+    }
+}
+
 function mapStateToProps(state:any): any {
     if(state.uriReducer.shortUri==="" && state.fileUpload.shortUri!==undefined) {
         return {

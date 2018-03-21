@@ -10,6 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UriReduction.Data\UriReduction.Data.csproj" />
+    <ProjectReference Include="..\UriReduction.Models\UriReduction.Models.csproj" />
     <ProjectReference Include="..\UriReduction\UriReduction.Data\UriReduction.Data.csproj" />
     <ProjectReference Include="..\UriReduction\UriReduction.Models\UriReduction.Models.csproj" />
   </ItemGroup>
