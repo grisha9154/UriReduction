@@ -1,9 +1,13 @@
 import * as React from "react";
-import {IProps} from "../props";
+import IShortUriFormProps from "../../types/iShortUriFormProps";
+import { TextField } from "material-ui";
+import { MuiThemeProvider } from "material-ui/styles";
 
-export function ShortUriForm ({shortUri}: IProps): any {
-        return <div>
-             <input id="post-shortlink" defaultValue={shortUri} />
-             <button id="copy-button" data-clipboard-target="#post-shortlink">Copy</button>
-        </div>;
+export function ShortUriForm ({shortUri}: IShortUriFormProps): any {
+        return <MuiThemeProvider>
+                        <TextField
+                                id="LongUriTextInput"
+                                hintText="ShortUri Uri"
+                                value={shortUri} />
+                </MuiThemeProvider>;
 }

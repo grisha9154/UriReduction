@@ -115,12 +115,15 @@ namespace UriReduction.Data.UserRepositories
             UserAccount user;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                var sqlQuery = "SELECT * FROM [UriReduction].[User] where UserName=@userName";
+                const string sqlQuery = "SELECT * FROM [UriReduction].[User] where UserName=@userName";
                 user = await db.QuerySingleOrDefaultAsync<UserAccount>(sqlQuery,new {userName=normalizedUserName} );
+                if (user == null) return null;
+                if (user.Id == null) return user;
                 var userRoles = _userRoleRepository.GetAllRoleIdByUserId(user.Id.Value);
                 foreach (var userRole in userRoles)
                 {
-                    user.UserRoles.Add((await _roleStore.FindByIdAsync(userRole.ToString(),new CancellationToken())).Name);
+                    user.UserRoles.Add(
+                        (await _roleStore.FindByIdAsync(userRole.ToString(), new CancellationToken())).Name);
                 }
             }
             return user;

@@ -1,8 +1,9 @@
 import { UriAction } from "../actionsCreator/index";
-import { IStoreState } from "../types/index";
-import { SET_SHORT_URI, CHANGE_LONG_URI } from "../constants/index";
+import  IStoreState  from "../types/iStoreState";
+import { SET_SHORT_URI, CHANGE_LONG_URI } from "../constants/uriActions";
 
-export function uriReducer(state: IStoreState = {longUri:"", shortUri:"", fullSet:false}, action: UriAction): IStoreState {
+export function uriReducer(state: IStoreState = {longUri:"", shortUri:"", fullSet:false, userName:"", signIn:false},
+ action: UriAction): IStoreState {
   switch (action.type) {
     case SET_SHORT_URI:
     {
@@ -17,6 +18,6 @@ export function uriReducer(state: IStoreState = {longUri:"", shortUri:"", fullSe
             longUri:action.value
         });
     }
-    default: return state;
+    default: return {...state,shortUri:"", fullSet:false,};
   }
 }
