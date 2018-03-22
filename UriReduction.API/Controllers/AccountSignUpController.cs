@@ -12,15 +12,20 @@ namespace UriReduction.API.Controllers
     {
         private readonly UserManager<UserAccount> _userManager;
         private readonly SignInManager<UserAccount> _signInManager;
-        private readonly RoleManager<AccountRole> _roleManager;
 
         public AccountSignUpController(SignInManager<UserAccount> signInManager, UserManager<UserAccount> userManager, RoleManager<AccountRole> roleManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
-            _roleManager = roleManager;
         }
-         
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Get()
+        {
+            return View("~/wwwroot/index.html");
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody]RegistrationModel model)
