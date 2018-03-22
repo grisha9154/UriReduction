@@ -1,41 +1,30 @@
 import * as React from "react";
-import {IProps} from "../props";
 import {LongUriFormContainer} from "../containers/longUriFormContainer";
 import {ShortUriForm} from "./shortUriForm";
 import {FileUploadContainer} from "../containers/reduxFileLoadContainer";
+import IAppProps from "../../types/iAppProps";
+import ILongUriFormContainerProps from "../../types/iLongUriFormContainerProps";
 
-export function App ({fullSet, shortUri, onLongUriSubmit, onLongUriChange, longUri,onCloudinarySubmit,onCloudinaryChange}: IProps): any {
-    if(fullSet) {
-        return <GetFullForm shortUri={shortUri} onLongUriSubmit={ onLongUriSubmit}
-        onLongUriChange = {onLongUriChange}
-        longUri= {longUri}
-        onCloudinarySubmit ={ onCloudinarySubmit}
-        onCloudinaryChange={ onCloudinaryChange}/>;
+export function App (appProps: IAppProps): any {
+    if(appProps.fullSet) {
+        return <GetFullForm {...appProps}/>;
     } else {
-        return  <GetLongForm onLongUriSubmit={ onLongUriSubmit}
-        onLongUriChange = {onLongUriChange}
-        longUri= {longUri}
-        onCloudinarySubmit ={ onCloudinarySubmit}
-        onCloudinaryChange={ onCloudinaryChange}/>;
+        return  <GetLongForm {...appProps.longUriFormProps}/>;
     }
 }
 
-function GetFullForm({shortUri,onLongUriSubmit,onLongUriChange,longUri, onCloudinarySubmit, onCloudinaryChange}:IProps):any {
+function GetFullForm(appProps:IAppProps):any {
     return (
         <div id="FullFrom">
-            <GetLongForm onLongUriSubmit={ onLongUriSubmit}
-                          onLongUriChange = {onLongUriChange}
-                          longUri= {longUri}
-                          onCloudinarySubmit ={ onCloudinarySubmit}
-                          onCloudinaryChange={ onCloudinaryChange}/>
-            <ShortUriForm shortUri={shortUri} />
+            <GetLongForm {...appProps.longUriFormProps}/>
+            <ShortUriForm {...appProps.shortUriFormProps} />
         </div>);
 }
 
-function GetLongForm({onLongUriSubmit,onLongUriChange,longUri, onCloudinarySubmit, onCloudinaryChange}:IProps):any {
+function GetLongForm(LongUriProps:ILongUriFormContainerProps):any {
     return  (
         <div id="LessForm">
-            <LongUriFormContainer onLongUriSubmit={onLongUriSubmit} onLongUriChange={onLongUriChange} longUri={longUri} />
+            <LongUriFormContainer {...LongUriProps} />
             <FileUploadContainer />
         </div>);
 }

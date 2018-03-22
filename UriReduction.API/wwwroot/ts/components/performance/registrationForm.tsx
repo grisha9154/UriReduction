@@ -1,18 +1,43 @@
 import * as React from "react";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import RaisedButton from "material-ui/RaisedButton";
+import { TextField } from "material-ui";
 
-function RegistrationForm (props:any): any {
+function RegistrationForm (props:any): JSX.Element {
+    const style:React.CSSProperties = {
+        margin: 12,
+      };
     return (
-        <div>
             <form onSubmit={props.onSubmit}>
-                <label>User Name </label>
-                <input type="text" name="UserName" /><br/>
-                <label>Password </label>
-                <input type="password" name="Password" /><br/>
-                <label>Confirm Password </label>
-                <input type="password"  name="ConfirmPassword" /><br />
-                <input type="submit" />
-            </form>
-        </div>);
+                <MuiThemeProvider>
+                    <TextField
+                    id="UserName"
+                    hintText="User Name"
+                    floatingLabelText="User Name"/>
+                </MuiThemeProvider><br/>
+                <MuiThemeProvider>
+                    <TextField
+                    id="Password"
+                    hintText="Password"
+                    type="password"
+                    floatingLabelText="Password"/> <br/>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                    <TextField
+                    id="ConfirmPassword"
+                    hintText="Confirm Password"
+                    type="password"
+                    floatingLabelText="Confirm Password"/>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                    <RaisedButton
+                    type="submit"
+                    label="Sign Up"
+                    primary={true}
+                    className="button-submit"
+                    style={style} />
+                </MuiThemeProvider>
+            </form>);
 }
 
 export default RegistrationForm;

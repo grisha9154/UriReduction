@@ -1,18 +1,30 @@
 import * as React from "react";
-import {IProps} from "../props";
+import  ILongUriFormProps  from "../../types/iLongUriFormProps";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import RaisedButton from "material-ui/RaisedButton";
+import { TextField } from "material-ui";
 
-export interface ILongUriFormProps {
-    longUri:string;
-    onLongUriSubmit:()=>void;
-    onLongUriChange: (event:any)=> void;
-}
-
-export function LongUriForm ({onLongUriSubmit,longUri,onLongUriChange}:ILongUriFormProps): any {
-    return  <form onSubmit={onLongUriSubmit}>
-                <input id="LongUriTextInput" type="text"
-                    placeholder="Long Uri"
-                    value={longUri}
-                    onChange={onLongUriChange}/>
-                <input type="submit" value="Short Uri"/>
-             </form>;
+export function LongUriForm (longUri:ILongUriFormProps): any {
+    const style:React.CSSProperties = {
+        margin: 12,
+      };
+    return(
+    <form onSubmit={longUri.onLongUriSubmit}>
+        <MuiThemeProvider>
+            <TextField
+                id="LongUriTextInput"
+                hintText="Long Uri"
+                floatingLabelText="Long Uri"
+                value={longUri.longUri}
+                onChange={longUri.onLongUriChange} />
+        </MuiThemeProvider>
+        <MuiThemeProvider>
+            <RaisedButton
+                type="submit"
+                label="Short Uri"
+                primary={true}
+                className="button-submit"
+                style={style} />
+        </MuiThemeProvider>
+    </form>);
 }

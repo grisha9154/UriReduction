@@ -1,16 +1,36 @@
 import * as React from "react";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import RaisedButton from "material-ui/RaisedButton";
+import { TextField } from "material-ui";
 
-function LoginForm (props:any): any {
+function LoginForm (props:any): JSX.Element {
+    const style:React.CSSProperties = {
+        margin: 12,
+      };
     return (
-        <div>
             <form onSubmit={props.onSubmit}>
-                <label>User Name </label>
-                <input type="text" name="UserName" /><br/>
-                <label>Password </label>
-                <input type="password" name="Password" /><br/>
-                <input type="submit" />
-            </form>
-        </div>);
+                <MuiThemeProvider>
+                    <TextField
+                    id="UserName"
+                    hintText="User Name"
+                    floatingLabelText="User Name"/>
+                </MuiThemeProvider><br/>
+                <MuiThemeProvider>
+                    <TextField
+                    id="Password"
+                    hintText="Password"
+                    type="password"
+                    floatingLabelText="Password"/>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                    <RaisedButton
+                    type="submit"
+                    label="Sign In"
+                    primary={true}
+                    className="button-submit"
+                    style={style} />
+                </MuiThemeProvider>
+            </form>);
 }
 
 export default LoginForm;

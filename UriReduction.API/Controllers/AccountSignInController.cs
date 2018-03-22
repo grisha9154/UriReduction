@@ -26,7 +26,7 @@ namespace UriReduction.API.Controllers
             var result = await _signInManager.PasswordSignInAsync(new UserAccount{UserName = model.Login}, model.Password, false,false);
             if (!result.Succeeded) return Unauthorized();
             await _signInManager.SignInAsync(await _userManager.FindByNameAsync(model.Login), false);
-            return Ok();
+            return Ok(Json(model.Login));
         }
     }
 }

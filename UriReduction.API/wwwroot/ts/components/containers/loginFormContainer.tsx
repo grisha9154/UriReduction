@@ -1,8 +1,9 @@
 import * as React from "react";
 import LoginForm from "../performance/loginForm";
 import * as $ from "jquery";
+import IAuthorizationFormProps from "../../types/iAuthorizationFormProps";
 
-class RegistrationContainer extends React.Component {
+class RegistrationContainer extends React.Component<IAuthorizationFormProps,any> {
     constructor(props:any) {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
@@ -15,9 +16,10 @@ class RegistrationContainer extends React.Component {
             data:data,
             method:"POST",
             contentType:"application/json",
-            success:(error:any,result:any)=> {
-                if(result) {
-                    window.location.href = "http://localhost:63303/";
+            success:(payload:any,status:any)=> {
+                if(status==="success") {
+                    this.props.onUserLoginIn(payload.value);
+                    this.props.switchLocation("/");
                 }
             }
         });

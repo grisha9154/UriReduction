@@ -29,7 +29,7 @@ namespace UriReduction.API.Controllers
             if (!result.Succeeded) return Unauthorized();
             await _userManager.AddToRoleAsync(await _userManager.FindByNameAsync(model.Login), "User");
             await _signInManager.SignInAsync(new UserAccount { UserName = model.Login}, false);
-            return Ok();
+            return Ok(Json(model.Login));
         }
     }
 }
