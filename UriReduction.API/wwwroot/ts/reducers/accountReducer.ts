@@ -16,7 +16,8 @@ action: AccountAction): IStoreState {
     {
         return Object.assign({},state,{
             userName:"",
-            signIn: false
+            signIn: false,
+            uri:undefined
         });
     }
     case GET_STATISTIC:
