@@ -1,6 +1,7 @@
 import * as React from "react";
 import { FlatButton } from "material-ui";
 import * as $ from "jquery";
+import style from "../style/FlatButtonStyle";
 
 class SignOutButton extends React.Component<any,any> {
     constructor(props:any) {
@@ -18,7 +19,7 @@ class SignOutButton extends React.Component<any,any> {
         });
     }
     render(): JSX.Element {
-        return (<FlatButton label="Sign Out" onClick={this.onClick}/>);
+        return (<FlatButton labelStyle={style} label="Sign Out" onClick={this.onClick}/>);
     }
 }
 export default SignOutButton;
