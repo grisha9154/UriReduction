@@ -15,6 +15,7 @@ class SignOutButton extends React.Component<any,any> {
             contentType:"application/json",
             success:(result:any)=> {
                 this.props.onClick();
+                this.props.switchLocation("/");
             }
         });
     }

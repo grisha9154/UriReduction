@@ -60,7 +60,8 @@ class Router extends React.Component<IRouterProps, object> {
             signIn={this.props.signIn}
             userName={this.props.userName}
             signOut={this.props.signOut}
-            onGetStatistic={this.props.onGetStatistic} />
+            onGetStatistic={this.props.onGetStatistic}
+            switchLocation={this.props.authorizationFormProps.switchLocation} />
             <ConnectedSwitch>
                     <Route exact path="/" children={()=> <App {...this.props.appProps}/>} />
                     <Route exact path="/signup" children={()=> <RegistrationFrom {...this.props.authorizationFormProps} />} />

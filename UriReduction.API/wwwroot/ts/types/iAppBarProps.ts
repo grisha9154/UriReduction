@@ -6,5 +6,6 @@ interface IAppBarProps {
     userName:string;
     signOut():IStoreState;
     onGetStatistic(uri:any[]):IStoreState;
+    switchLocation(location:string):IStoreState;
 }
 export default IAppBarProps;
