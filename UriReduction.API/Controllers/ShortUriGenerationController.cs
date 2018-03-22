@@ -8,7 +8,7 @@ using UriReduction.Services.UriShorteners;
 namespace UriReduction.API.Controllers
 {
     
-    [Route("SUGC")]
+   
     public class ShortUriGenerationController : Controller
     {
         private readonly IUriShortener _shortener;
@@ -18,13 +18,17 @@ namespace UriReduction.API.Controllers
             _shortener = shortener;
             _userManager = userManager;
         }
-      
+        [Route("signin")]
+        [Route("signup")]
+        [Route("SUGC")]
+        [Route("user")]
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Get()
         {
             return View("~/wwwroot/index.html");
         }
+        [Route("SUGC")]
         [HttpPost]
         [AllowAnonymous]
         public async Task<string> Post( [FromBody]AssociatedUri longUri)

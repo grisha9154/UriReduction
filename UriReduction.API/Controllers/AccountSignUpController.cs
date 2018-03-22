@@ -19,13 +19,6 @@ namespace UriReduction.API.Controllers
             _userManager = userManager;
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Get()
-        {
-            return View("~/wwwroot/index.html");
-        }
-
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody]RegistrationModel model)
