@@ -66,7 +66,10 @@ class Router extends React.Component<IRouterProps, object> {
                     <Route exact path="/" children={()=> <App {...this.props.appProps}/>} />
                     <Route exact path="/signup" children={()=> <RegistrationFrom {...this.props.authorizationFormProps} />} />
                     <Route exact path="/signin" children={()=> <LoginForm {...this.props.authorizationFormProps} />} />
-                    <Route exact path="/user" children={()=><TableSimple uri={this.props.uri} />}/>
+                    <Route exact path="/user" children={()=> {
+                        if(this.props.signIn) {
+                            return<TableSimple uri={this.props.uri} />;
+                            } return <App {...this.props.appProps}/>;}}/>
             </ConnectedSwitch>
         </div>
         );
