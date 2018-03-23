@@ -6,7 +6,7 @@ import style from "../style/FlatButtonStyle";
 function RegistrationButton(): JSX.Element {
     return (
     <Link to="/signUp">
-    <FlatButton labelStyle={style} label="Sign Up"/>
+        <FlatButton labelStyle={style} label="Sign Up"/>
     </Link>
     );
 }

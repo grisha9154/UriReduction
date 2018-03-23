@@ -17,29 +17,30 @@ class TableSimple extends React.Component<any, any> {
   }
   MyTableBody(numbers: Array<any>): JSX.Element[] {
     if (numbers === undefined) { return; }
-    let result: JSX.Element[] = numbers.map((number) => <TableRow>
+    let result: JSX.Element[] = numbers.map((number) => 
+    <TableRow>
       <TableRowColumn>{number.shortUri}</TableRowColumn>
       <TableRowColumn>{number.requestCount}</TableRowColumn>
-      </TableRow>);
+    </TableRow>);
     return result;
  }
   render(): any {
     console.log(this.props.uri);
     return(
       <MuiThemeProvider>
-      <Table>
-        <TableHeader
-        displaySelectAll={false}
-        adjustForCheckbox={false}>
-          <TableRow>
-            <TableHeaderColumn>Short Uri</TableHeaderColumn>
-            <TableHeaderColumn>Count</TableHeaderColumn>
-          </TableRow>
-        </TableHeader>
-        <TableBody displayRowCheckbox={false}>
-          {this.MyTableBody(this.props.uri)}
-        </TableBody>
-      </Table>
+        <Table>
+          <TableHeader
+          displaySelectAll={false}
+          adjustForCheckbox={false}>
+            <TableRow>
+              <TableHeaderColumn>Short Uri</TableHeaderColumn>
+              <TableHeaderColumn>Count</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          <TableBody displayRowCheckbox={false}>
+            {this.MyTableBody(this.props.uri)}
+          </TableBody>
+        </Table>
       </MuiThemeProvider>
     );
   }

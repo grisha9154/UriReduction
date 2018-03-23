@@ -23,10 +23,10 @@ class UserButton extends React.Component<any, any> {
         return (
             <Link to="/user">
                 <FlatButton
-                labelStyle={style}
-                label={this.props.userName}
-                onClick={this.test}>
-            </FlatButton>
+                    labelStyle={style}
+                    label={this.props.userName}
+                    onClick={this.test}>
+                </FlatButton>
             </Link>
             );
     }

@@ -3,7 +3,8 @@ import LoginButton from "./LoginButton";
 import RegistrationButton from "./RegistrationButtons";
 
 function NoAuthorizeButtons(): JSX.Element {
-return (<div>
+return (
+<div>
     <LoginButton />
     <RegistrationButton />
 </div>);
