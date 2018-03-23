@@ -1,8 +1,17 @@
-import IAppProps from "./iAppProps";
+import IAssociatedUri from "./iAssociatedUri";
 
 interface IMapStateToProps {
-    appPropsState: IAppProps;
-    signIn: boolean;
-    userName: string;
+    appPropsState: {
+        shortUriFormProps: {
+            shortUri: string
+        },
+        longUriFormProps: {
+            longUri: string
+            },
+        fullSet: boolean,
+     },
+     signIn: boolean,
+     userName: string,
+     uri: IAssociatedUri[]
 }
 export default IMapStateToProps;

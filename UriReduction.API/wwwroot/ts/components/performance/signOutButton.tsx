@@ -2,9 +2,10 @@ import * as React from "react";
 import { FlatButton } from "material-ui";
 import * as $ from "jquery";
 import style from "../style/FlatButtonStyle";
+import IAppBarProps from "../../types/iAppBarProps";
 
-class SignOutButton extends React.Component<any, any> {
-    constructor(props: any) {
+class SignOutButton extends React.Component<IAppBarProps, object> {
+    constructor(props: IAppBarProps) {
         super(props);
         this.onClick = this.onClick.bind(this);
     }
@@ -13,8 +14,8 @@ class SignOutButton extends React.Component<any, any> {
             url: "/signout",
             method: "GET",
             contentType: "application/json",
-            success: (result: any) => {
-                this.props.onClick();
+            success: () => {
+                this.props.signOut();
                 this.props.switchLocation("/");
             }
         });

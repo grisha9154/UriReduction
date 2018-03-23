@@ -9,23 +9,24 @@ import {
 } from "material-ui/Table";
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import IAssociatedUri from "../../types/iAssociatedUri";
+import ITableSimpleProps from "../../types/iTableSimpleProps";
 
-class TableSimple extends React.Component<any, any> {
-  constructor(props: any) {
+class TableSimple extends React.Component<ITableSimpleProps, object> {
+  constructor(props: ITableSimpleProps) {
     super(props);
     this.MyTableBody = this.MyTableBody.bind(this);
   }
-  MyTableBody(numbers: Array<any>): JSX.Element[] {
-    if (numbers === undefined) { return; }
-    let result: JSX.Element[] = numbers.map((number) => 
+  MyTableBody(uris: IAssociatedUri[]): JSX.Element[] {
+    if (uris === undefined) { return; }
+    let result: JSX.Element[] = uris.map((uri) => 
     <TableRow>
-      <TableRowColumn>{number.shortUri}</TableRowColumn>
-      <TableRowColumn>{number.requestCount}</TableRowColumn>
+      <TableRowColumn>{uri.shortUri}</TableRowColumn>
+      <TableRowColumn>{uri.requestCount}</TableRowColumn>
     </TableRow>);
     return result;
  }
-  render(): any {
-    console.log(this.props.uri);
+  render(): JSX.Element {
     return(
       <MuiThemeProvider>
         <Table>

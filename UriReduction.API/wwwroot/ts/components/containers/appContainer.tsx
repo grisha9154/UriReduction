@@ -1,7 +1,7 @@
 import * as React from "react";
-import { connect, Dispatch } from "react-redux";
+import { connect, Dispatch, InferableComponentEnhancerWithProps, DispatchProp } from "react-redux";
 
-import { Route, Switch } from "react-router";
+import { Route, Switch, SwitchProps } from "react-router";
 import { ConnectedRouter, push } from "react-router-redux";
 import { Link } from "react-router-dom";
 
@@ -18,18 +18,20 @@ import ILongUriFormContainerProps from "../../types/iLongUriFormContainerProps";
 import IShortUriFormProps from "../../types/iShortUriFormProps";
 import AppBar from "../performance/appBar";
 import TableSimple from "../performance/userStatistic";
+import { Store } from "redux";
+import IAssociatedUri from "../../types/iAssociatedUri";
+import { StatelessComponent } from "enzyme";
+import IMapDispatchToProps from "../../types/iMapDispatchToProps";
+import IAppContainer from "../../types/iAppContainer";
 
-const ConnectedSwitch: any = connect((state: any) => {return {location: state.router.location}; })(Switch as any);
+const ConnectedSwitch = connect((state: IStoreState) => {return {location: state.router.location}; })(Switch as null);
 
-class AppContainer extends  React.Component<any, object> {
+class AppContainer extends  React.Component<IAppContainer, object> {
     routerProps: IRouterProps;
-    constructor(props: IRouterProps) {
-        super(props);
-    }
-    render(): any {
+    render(): JSX.Element {
         this.routerProps = {
             appProps: {
-                fullSet: this.props.appPropsState.fullSet as boolean,
+                fullSet: this.props.appPropsState.fullSet,
                 longUriFormProps: {
                     ...this.props.appPropsState.longUriFormProps,
                     ...this.props.appProps.longUriFormProps} as ILongUriFormContainerProps,
@@ -43,16 +45,16 @@ class AppContainer extends  React.Component<any, object> {
             onGetStatistic: this.props.onGetStatistic,
             uri: this.props.uri
         };
-        console.log("props", this.routerProps);
         return <Router {...this.routerProps}/>;
     }
 }
+
 
 class Router extends React.Component<IRouterProps, object> {
     constructor(props: IRouterProps) {
         super(props);
     }
-    render(): any {
+    render(): JSX.Element {
         return (
         <div>
             <AppBar
@@ -78,8 +80,7 @@ class Router extends React.Component<IRouterProps, object> {
 }
 
 
-function mapStateToProps(state: any): any {
-    console.log("state", state);
+function mapStateToProps(state: IStoreState): IMapStateToProps {
  return ({
      appPropsState: {
         shortUriFormProps: {
@@ -95,7 +96,7 @@ function mapStateToProps(state: any): any {
      uri: state.accountReducer.uri
  });
 }
-function mapDispatchToProps(dispatch: Dispatch<UriAction>): any {
+function mapDispatchToProps(dispatch: Dispatch<UriAction>): IMapDispatchToProps {
     return{
         appProps: {
             longUriFormProps: {
@@ -118,7 +119,7 @@ function mapDispatchToProps(dispatch: Dispatch<UriAction>): any {
         onUserLoginOut: () => {
             dispatch(signOut());
         },
-        onGetStatistic: (uri: any[]) => {
+        onGetStatistic: (uri: IAssociatedUri[]) => {
             dispatch(getStatistic(uri));
         }
     };

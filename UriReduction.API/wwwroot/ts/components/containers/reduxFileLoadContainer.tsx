@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FileUpload } from "redux-file-upload";
 
-export function FileUploadContainer (): any {
+export function FileUploadContainer (): JSX.Element {
     return <FileUpload
     allowedFileTypes={["jpg", "jpeg", "pdf"]}
     dropzoneId="fileUpload"

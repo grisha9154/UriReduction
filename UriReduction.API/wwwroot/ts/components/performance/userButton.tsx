@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { FlatButton } from "material-ui";
 import * as $ from "jquery";
 import style from "../style/FlatButtonStyle";
+import IUserButton from "../../types/iUserButton";
+import IAssociatedUri from "../../types/iAssociatedUri";
 
-class UserButton extends React.Component<any, any> {
-    constructor(props: any) {
+class UserButton extends React.Component<IUserButton, object> {
+    constructor(props: IUserButton) {
         super(props);
         this.test = this.test.bind(this);
     }
@@ -14,12 +16,12 @@ class UserButton extends React.Component<any, any> {
         url: "/statistic",
         method: "GET",
         contentType: "application/json",
-        success: (result: any) => {
+        success: (result: IAssociatedUri[]) => {
             this.props.onGetStatistic(result);
         }
     });
     }
-    render(): any {
+    render(): JSX.Element {
         return (
             <Link to="/user">
                 <FlatButton
