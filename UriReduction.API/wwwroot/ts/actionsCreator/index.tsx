@@ -1,5 +1,5 @@
-import {CHANGE_LONG_URI, SET_SHORT_URI} from "../constants/uriActions";
-import {SIGN_OUT,SIGN_IN,GET_STATISTIC} from "../constants/accountActions";
+import { CHANGE_LONG_URI, SET_SHORT_URI } from "../constants/uriActions";
+import { SIGN_OUT, SIGN_IN, GET_STATISTIC } from "../constants/accountActions";
 
 export interface IChangeLongUri {
     type: CHANGE_LONG_URI;
@@ -22,16 +22,16 @@ export interface ISignOut {
 
 export interface IGetStatistic {
     type: GET_STATISTIC;
-    value:any[];
+    value: any[];
 }
 
-export type AccountAction = ISignIn | ISignOut|IGetStatistic;
+export type AccountAction = ISignIn | ISignOut | IGetStatistic;
 export type UriAction = IChangeLongUri | ISetShortUri;
 
-export function getStatistic(uri:any[]):IGetStatistic {
+export function getStatistic(uri: any[]): IGetStatistic {
     return{
         type: GET_STATISTIC,
-        value:uri
+        value: uri
     };
 }
 

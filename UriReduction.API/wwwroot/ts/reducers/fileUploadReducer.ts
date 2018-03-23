@@ -1,11 +1,11 @@
 import { actions, reducer } from "redux-file-upload";
 
-function fileUploadReducer (state:any,action:any):any {
+function fileUploadReducer (state: any, action: any): any {
     switch (action.type) {
-        case actions.FILE_UPLOAD_COMPLETE:{
-          return {...state,...action.payload.response};
+        case actions.FILE_UPLOAD_COMPLETE: {
+          return {...state, ...action.payload.response};
         }
-        default: return reducer(state,action);
+        default: return reducer(state, action);
     }
 }
 
