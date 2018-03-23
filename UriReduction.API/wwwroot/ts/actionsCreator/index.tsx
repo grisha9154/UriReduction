@@ -1,14 +1,15 @@
 import { CHANGE_LONG_URI, SET_SHORT_URI } from "../constants/uriActions";
 import { SIGN_OUT, SIGN_IN, GET_STATISTIC } from "../constants/accountActions";
+import IAssociatedUri from "../types/iAssociatedUri";
 
 export interface IChangeLongUri {
     type: CHANGE_LONG_URI;
-    value: any;
+    value: string;
 }
 
 export interface ISetShortUri {
     type: SET_SHORT_URI;
-    value: any;
+    value: string;
 }
 
 export interface ISignIn {
@@ -22,13 +23,13 @@ export interface ISignOut {
 
 export interface IGetStatistic {
     type: GET_STATISTIC;
-    value: any[];
+    value: IAssociatedUri[];
 }
 
 export type AccountAction = ISignIn | ISignOut | IGetStatistic;
 export type UriAction = IChangeLongUri | ISetShortUri;
 
-export function getStatistic(uri: any[]): IGetStatistic {
+export function getStatistic(uri: IAssociatedUri[]): IGetStatistic {
     return{
         type: GET_STATISTIC,
         value: uri

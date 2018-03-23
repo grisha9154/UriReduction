@@ -3,6 +3,7 @@ import { LongUriForm } from "../performance/longUriForm";
 import { sendToServer } from "../../shared/sendToServer";
 import  ILongUriFormProps  from "../../types/iLongUriFormProps";
 import ILongUriFormContainerProps from "../../types/iLongUriFormContainerProps";
+import ILongUriForm from "../../types/iLongUriForm";
 
 export class LongUriFormContainer extends  React.Component<ILongUriFormContainerProps, object> {
     longUriFormProps: ILongUriFormProps;
@@ -11,7 +12,7 @@ export class LongUriFormContainer extends  React.Component<ILongUriFormContainer
         this.onSubmit = this.onSubmit.bind(this);
         this.onLongUriChange = this.onLongUriChange.bind(this);
     }
-    onSubmit (event: any): void {
+    onSubmit (event: React.FormEvent<{}>): void {
         event.preventDefault();
         if (this.props.longUri.length <= 0) {
             this.render();
@@ -19,10 +20,10 @@ export class LongUriFormContainer extends  React.Component<ILongUriFormContainer
         }
         sendToServer(this.props.longUri, this.props.onLongUriSubmit);
     }
-    onLongUriChange(event: any): void {
-        this.props.onLongUriChange(event.target.value);
+    onLongUriChange(event: React.FormEvent<ILongUriForm>): void {
+        this.props.onLongUriChange(event.currentTarget.value);
     }
-    render(): any {
+    render(): JSX.Element {
         return <LongUriForm
             onLongUriSubmit={this.onSubmit}
             onLongUriChange={this.onLongUriChange}

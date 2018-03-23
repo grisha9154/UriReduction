@@ -2,8 +2,10 @@ import * as React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
 import { TextField } from "material-ui";
+import IRegistrationForm from "../../types/iRegistrationForm";
+import IRegistrationFormProps from "../../types/iRegistrationFormProps";
 
-function RegistrationForm (props: any): JSX.Element {
+function RegistrationForm (props: IRegistrationFormProps): JSX.Element {
     const style: React.CSSProperties = {
         margin: 12,
       };

@@ -1,15 +1,16 @@
 import  IStoreState  from "./iStoreState";
 import IAppProps from "./iAppProps";
 import IAuthorizationFormProps from "./iAuthorizationFormProps";
+import IAssociatedUri from "./iAssociatedUri";
 
 interface IRouterProps {
     appProps: IAppProps;
     signIn: boolean;
     userName: string;
-    uri: any;
+    uri: IAssociatedUri[];
     authorizationFormProps: IAuthorizationFormProps;
-    signOut(): IStoreState;
-    onGetStatistic(uri: any[]): IStoreState;
+    signOut(): void;
+    onGetStatistic(uri: IAssociatedUri[]): void;
 }
 
 export default IRouterProps;

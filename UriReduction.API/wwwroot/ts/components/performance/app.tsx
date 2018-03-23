@@ -5,7 +5,7 @@ import { FileUploadContainer } from "../containers/reduxFileLoadContainer";
 import IAppProps from "../../types/iAppProps";
 import ILongUriFormContainerProps from "../../types/iLongUriFormContainerProps";
 
-export function App (appProps: IAppProps): any {
+export function App (appProps: IAppProps): JSX.Element {
     if (appProps.fullSet) {
         return <GetFullForm {...appProps}/>;
     } else {
@@ -13,7 +13,7 @@ export function App (appProps: IAppProps): any {
     }
 }
 
-function GetFullForm(appProps: IAppProps): any {
+function GetFullForm(appProps: IAppProps): JSX.Element {
     return (
         <div id="FullFrom">
             <GetLongForm {...appProps.longUriFormProps}/>
@@ -21,7 +21,7 @@ function GetFullForm(appProps: IAppProps): any {
         </div>);
 }
 
-function GetLongForm(LongUriProps: ILongUriFormContainerProps): any {
+function GetLongForm(LongUriProps: ILongUriFormContainerProps): JSX.Element {
     return  (
         <div id="LessForm">
             <LongUriFormContainer {...LongUriProps} />

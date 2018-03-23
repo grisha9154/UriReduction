@@ -1,7 +1,8 @@
+import ILongUriForm from "./iLongUriForm";
+
 interface ILongUriFormProps {
     longUri: string;
-    errorText: string;
-    onLongUriSubmit: () => void;
-    onLongUriChange: (event: any) => void;
+    onLongUriSubmit: ( event: React.FormEvent<{}>) => void;
+    onLongUriChange: ( event: React.FormEvent<ILongUriForm>) => void;
 }
 export default ILongUriFormProps;

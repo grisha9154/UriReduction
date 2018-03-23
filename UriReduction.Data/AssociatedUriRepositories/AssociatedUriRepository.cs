@@ -72,7 +72,7 @@ namespace UriReduction.Data.AssociatedUriRepositories
             List<AssociatedUri> uri;
             using (IDbConnection db = new SqlConnection(_connectionString.GetConnectionString()))
             {
-                var sqlQuery = "select * from [UriReduction].[AssociatedUri] as [uri], [UriReduction].[User] as [user] where  [user].UserName =@userName and [uri].UserId = [user].Id;";
+                var sqlQuery = "select [uri].[Id],[uri].[LongUri],[uri].[RequestCount],[uri].[ShortUri],[uri].[UserId]  from [UriReduction].[AssociatedUri] as [uri], [UriReduction].[User] as [user] where  [user].UserName =@userName and [uri].UserId = [user].Id;";
                 uri = db.Query<AssociatedUri>(sqlQuery, new { userName }).ToList();
             }
 

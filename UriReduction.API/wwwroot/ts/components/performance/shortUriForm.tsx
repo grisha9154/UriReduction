@@ -3,7 +3,7 @@ import IShortUriFormProps from "../../types/iShortUriFormProps";
 import { TextField } from "material-ui";
 import { MuiThemeProvider } from "material-ui/styles";
 
-export function ShortUriForm ({shortUri}: IShortUriFormProps): any {
+export function ShortUriForm ({shortUri}: IShortUriFormProps): JSX.Element {
         return <MuiThemeProvider>
                         <TextField
                                 id="LongUriTextInput"

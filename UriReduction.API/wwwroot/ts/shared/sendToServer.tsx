@@ -6,7 +6,7 @@ export function sendToServer (longUri: string, onSubmit: (data: string) => void)
         data: data,
         method: "POST",
         contentType: "application/json",
-        success: (result: any) => {
+        success: (result: string) => {
             onSubmit(result);
         }
     });
