@@ -4,8 +4,8 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
 import { TextField } from "material-ui";
 
-export function LongUriForm (longUri:ILongUriFormProps): any {
-    const style:React.CSSProperties = {
+export function LongUriForm (longUri: ILongUriFormProps): any {
+    const style: React.CSSProperties = {
         margin: 12,
       };
     return(

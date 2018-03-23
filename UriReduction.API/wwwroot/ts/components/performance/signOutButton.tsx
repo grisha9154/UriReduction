@@ -3,17 +3,17 @@ import { FlatButton } from "material-ui";
 import * as $ from "jquery";
 import style from "../style/FlatButtonStyle";
 
-class SignOutButton extends React.Component<any,any> {
-    constructor(props:any) {
+class SignOutButton extends React.Component<any, any> {
+    constructor(props: any) {
         super(props);
         this.onClick = this.onClick.bind(this);
     }
-    onClick():void {
+    onClick(): void {
         $.ajax({
-            url:"/signout",
-            method:"GET",
-            contentType:"application/json",
-            success:(result:any)=> {
+            url: "/signout",
+            method: "GET",
+            contentType: "application/json",
+            success: (result: any) => {
                 this.props.onClick();
                 this.props.switchLocation("/");
             }

@@ -26,6 +26,7 @@ namespace UriReduction.API.Controllers
         [AllowAnonymous]
         public IActionResult Get()
         {
+            Response.Headers.Add("UserName",User.Identity.Name);
             return View("~/wwwroot/index.html");
         }
         [Route("SUGC")]

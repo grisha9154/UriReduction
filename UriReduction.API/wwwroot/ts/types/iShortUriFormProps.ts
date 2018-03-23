@@ -1,4 +1,4 @@
 interface IShortUriFormProps {
-    shortUri:string;
+    shortUri: string;
 }
 export default IShortUriFormProps;
