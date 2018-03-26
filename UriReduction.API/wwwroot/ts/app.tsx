@@ -16,7 +16,6 @@ ajax({
         method: "GET",
         contentType: "application/json",
         success: (result: {userName: string, loginIn: boolean}) => {
-            console.log(result);
             const history: History = createBrowserHistory();
 
             const historyMiddleware: Middleware = routerMiddleware(history);
