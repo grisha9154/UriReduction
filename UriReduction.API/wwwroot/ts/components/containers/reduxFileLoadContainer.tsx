@@ -5,7 +5,7 @@ export function FileUploadContainer (): JSX.Element {
     return <FileUpload
     allowedFileTypes={["jpg", "jpeg", "pdf"]}
     dropzoneId="fileUpload"
-    url="http://localhost:63303/image"
+    url="/image"
   >
     <button>
       Click or drag here

@@ -10,6 +10,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Properties\PublishProfiles\UriReductionAPI20180326022034 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\UriReductionAPI20180326023138 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\UriReductionAPI20180326024047 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\UriReductionAPI20180326123703 - Web Deploy.pubxml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CloudinaryDotNet" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.3" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
@@ -22,7 +29,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UriReduction.Data\UriReduction.Data.csproj" />
+    <ProjectReference Include="..\UriReduction.Models\UriReduction.Models.csproj" />
     <ProjectReference Include="..\UriReduction.Services\UriReduction.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
 </Project>

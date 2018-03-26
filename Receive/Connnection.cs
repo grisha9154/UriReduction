@@ -11,7 +11,7 @@ namespace Receive
         public string GetConnectionString()
         {
             return
-                "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=UriReduction.DataBase;Integrated Security=True;";
+                "Data Source=urireductionapi20180326023138dbserver.database.windows.net;Initial Catalog=UriReductionAPI20180326024047_db;Integrated Security=False;User ID=grisha;Password=ReTyFg159;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         }
     }
 }
