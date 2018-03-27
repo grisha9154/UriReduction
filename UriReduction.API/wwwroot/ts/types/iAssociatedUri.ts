@@ -2,6 +2,6 @@ interface IAssociatedUri {
     id: number,
     longUri: string,
     requestCount: number,
-    shortUri: number
+    shortUri: string
 }
 export default IAssociatedUri;

@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UriReduction.DataBase\UriReduction.DataBase.sqlproj" />
     <ProjectReference Include="..\UriReduction.Data\UriReduction.Data.csproj" />
     <ProjectReference Include="..\UriReduction.Models\UriReduction.Models.csproj" />
     <ProjectReference Include="..\UriReduction.Services\UriReduction.Services.csproj" />

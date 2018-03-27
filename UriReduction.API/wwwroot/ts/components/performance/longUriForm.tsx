@@ -15,6 +15,7 @@ export function LongUriForm (longUri: ILongUriFormProps): JSX.Element {
                 id="LongUriTextInput"
                 hintText="Long Uri"
                 floatingLabelText="Long Uri"
+                errorText= {longUri.errorText}
                 value={longUri.longUri}
                 onChange={longUri.onLongUriChange} />
         </MuiThemeProvider>
