@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Reflection;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using React.AspNet;
+using NSwag.AspNetCore;
 using UriReduction.Data.AssociatedUriRepositories;
 using UriReduction.Data.DataBaseConnectionConfig;
 using UriReduction.Data.UserRepositories;
@@ -83,6 +83,12 @@ namespace UriReduction.API
             app.UseAuthentication();
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.UseSwaggerUi(typeof(Startup).GetTypeInfo().Assembly,setting =>
+            {
+                setting.GeneratorSettings.DefaultPropertyNameHandling = NJsonSchema.PropertyNameHandling.CamelCase;
+            });
+
             app.UseMvc();
         }
     }

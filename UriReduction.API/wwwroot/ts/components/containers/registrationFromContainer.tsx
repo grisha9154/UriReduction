@@ -7,6 +7,8 @@ import IPayload from "../../types/iPayload";
 import IRegistrationForm from "../../types/iRegistrationForm";
 
 class RegistrationContainer extends React.Component<IAuthorizationFormProps, object> {
+    errorTextConfirm: string;
+    errorTextUserName: string;
     constructor(props: IAuthorizationFormProps) {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
@@ -17,7 +19,11 @@ class RegistrationContainer extends React.Component<IAuthorizationFormProps, obj
             Login: event.currentTarget.UserName.value,
              Password: event.currentTarget.Password.value
             });
-        if (event.currentTarget.Password.value !== event.currentTarget.ConfirmPassword.value) { return; }
+        if (event.currentTarget.Password.value !== event.currentTarget.ConfirmPassword.value) {
+            this.errorTextConfirm = "Passwords do not match";
+            this.props.switchLocation("/signup");
+            return;
+        }
         ajax({
             url: "/signup",
             data: data,
@@ -28,11 +34,15 @@ class RegistrationContainer extends React.Component<IAuthorizationFormProps, obj
                     this.props.onUserLoginIn(payload.value);
                     this.props.switchLocation("/");
                 }
+            },
+            error: (jqXHR, textStatus, errorThrown) => {
+                this.errorTextUserName = "Wrong user name";
+                this.props.switchLocation("/signup");  
             }
         });
     }
     render(): JSX.Element {
-        return <RegistrationForm onSubmit={this.onSubmit} />;
+        return <RegistrationForm onSubmit={this.onSubmit}  loginError={this.errorTextConfirm} userNameError={this.errorTextUserName}/>;
     }
 }
 export default RegistrationContainer;

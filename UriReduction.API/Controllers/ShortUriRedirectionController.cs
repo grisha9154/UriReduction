@@ -24,7 +24,7 @@ namespace UriReduction.API.Controllers
         public IActionResult Get(string shortUri)
         {
             var longUri= Redirect(_rederection.DecipherShortUri(shortUri));
-            _counter.IncrementShortUriRequestCount(shortUri);
+           // _counter.IncrementShortUriRequestCount(shortUri);
             return longUri;
         }
     }

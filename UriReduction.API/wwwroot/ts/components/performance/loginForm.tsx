@@ -14,6 +14,7 @@ function LoginForm (props: IRegistrationFormProps): JSX.Element {
                     <TextField
                     id="UserName"
                     hintText="User Name"
+                    errorText={props.userNameError}
                     floatingLabelText="User Name"/>
                 </MuiThemeProvider><br/>
                 <MuiThemeProvider>
@@ -21,6 +22,7 @@ function LoginForm (props: IRegistrationFormProps): JSX.Element {
                     id="Password"
                     hintText="Password"
                     type="password"
+                    errorText={props.loginError}
                     floatingLabelText="Password"/>
                 </MuiThemeProvider>
                 <MuiThemeProvider>

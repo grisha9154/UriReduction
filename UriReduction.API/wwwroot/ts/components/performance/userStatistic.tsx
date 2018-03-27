@@ -21,7 +21,8 @@ class TableSimple extends React.Component<ITableSimpleProps, object> {
     if (uris === undefined) { return; }
     let result: JSX.Element[] = uris.map((uri) => 
     <TableRow>
-      <TableRowColumn>{uri.shortUri}</TableRowColumn>
+      <TableRowColumn><a href={uri.shortUri}>{uri.shortUri.slice(uri.shortUri.indexOf("SUGC/") + 5)}</a></TableRowColumn>
+      <TableRowColumn><a href={uri.longUri}>{uri.longUri}</a></TableRowColumn>
       <TableRowColumn>{uri.requestCount}</TableRowColumn>
     </TableRow>);
     return result;
@@ -35,6 +36,7 @@ class TableSimple extends React.Component<ITableSimpleProps, object> {
           adjustForCheckbox={false}>
             <TableRow>
               <TableHeaderColumn>Short Uri</TableHeaderColumn>
+              <TableRowColumn>Long Uri</TableRowColumn>
               <TableHeaderColumn>Count</TableHeaderColumn>
             </TableRow>
           </TableHeader>

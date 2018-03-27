@@ -20,6 +20,10 @@ namespace UriReduction.API.Controllers
         public JsonResult Get()
         {
             var result = _statistics.GetStatistics(User.Identity.Name).ToArray();
+            foreach (var uri in result)
+            {
+                uri.ShortUri = Request.Scheme + "://" + Request.Host + "/SUGC/" + uri.ShortUri;
+            }
             return Json(result);
         }
     }
