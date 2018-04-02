@@ -31,7 +31,7 @@ namespace UriReduction.API.Controllers
         [Route("SUGC")]
         [HttpPost]
         [AllowAnonymous]
-        public async Task<string> Post( [FromBody]AssociatedUri longUri)
+        public async Task<IActionResult> Post([FromBody]AssociatedUri longUri)
         {
             UserAccount user = new UserAccount{Id = null};
             if (User.Identity.Name != null)
@@ -39,7 +39,7 @@ namespace UriReduction.API.Controllers
                 user = await _userManager.FindByNameAsync(User.Identity.Name);
             }
             var shortUri = _shortener.Shorten(longUri.LongUri,user.Id);
-            return Request.Host+"/SUGC/" + shortUri;
+            return Ok(new { longUri = Request.Host + "/SUGC/" + shortUri });
         }
     }
 }
