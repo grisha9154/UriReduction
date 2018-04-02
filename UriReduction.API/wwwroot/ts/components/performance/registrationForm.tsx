@@ -2,6 +2,7 @@ import * as React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
 import { TextField } from "material-ui";
+
 import IRegistrationForm from "../../types/iRegistrationForm";
 import IRegistrationFormProps from "../../types/iRegistrationFormProps";
 

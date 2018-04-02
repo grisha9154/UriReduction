@@ -7,8 +7,8 @@ import {
   TableRow,
   TableRowColumn,
 } from "material-ui/Table";
-
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+
 import IAssociatedUri from "../../types/iAssociatedUri";
 import ITableSimpleProps from "../../types/iTableSimpleProps";
 

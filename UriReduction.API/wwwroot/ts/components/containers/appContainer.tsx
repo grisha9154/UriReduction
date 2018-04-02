@@ -1,9 +1,10 @@
 import * as React from "react";
 import { connect, Dispatch, InferableComponentEnhancerWithProps, DispatchProp } from "react-redux";
-
 import { Route, Switch, SwitchProps } from "react-router";
 import { ConnectedRouter, push } from "react-router-redux";
 import { Link } from "react-router-dom";
+import { Store } from "redux";
+import { StatelessComponent } from "enzyme";
 
 import { App } from "../performance/app";
 import { UriAction, setShortUri, changeLongUri, signIn, signOut, getStatistic } from "../../actionsCreator/index";
@@ -18,9 +19,7 @@ import ILongUriFormContainerProps from "../../types/iLongUriFormContainerProps";
 import IShortUriFormProps from "../../types/iShortUriFormProps";
 import AppBar from "../performance/appBar";
 import TableSimple from "../performance/userStatistic";
-import { Store } from "redux";
 import IAssociatedUri from "../../types/iAssociatedUri";
-import { StatelessComponent } from "enzyme";
 import IMapDispatchToProps from "../../types/iMapDispatchToProps";
 import IAppContainer from "../../types/iAppContainer";
 
@@ -48,7 +47,6 @@ class AppContainer extends  React.Component<IAppContainer, object> {
         return <Router {...this.routerProps}/>;
     }
 }
-
 
 class Router extends React.Component<IRouterProps, object> {
     constructor(props: IRouterProps) {
@@ -79,7 +77,6 @@ class Router extends React.Component<IRouterProps, object> {
     }
 }
 
-
 function mapStateToProps(state: IStoreState): IMapStateToProps {
  return ({
      appPropsState: {
@@ -96,6 +93,7 @@ function mapStateToProps(state: IStoreState): IMapStateToProps {
      uri: state.accountReducer.uri
  });
 }
+
 function mapDispatchToProps(dispatch: Dispatch<UriAction>): IMapDispatchToProps {
     return{
         appProps: {

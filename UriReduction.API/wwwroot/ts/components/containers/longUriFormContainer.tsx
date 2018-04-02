@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { LongUriForm } from "../performance/longUriForm";
 import { sendToServer } from "../../shared/sendToServer";
 import  ILongUriFormProps  from "../../types/iLongUriFormProps";
@@ -10,10 +11,9 @@ export class LongUriFormContainer extends  React.Component<ILongUriFormContainer
     errorText: string;
     constructor(props: ILongUriFormContainerProps) {
         super(props);
-        this.onSubmit = this.onSubmit.bind(this);
         this.onLongUriChange = this.onLongUriChange.bind(this);
     }
-    onSubmit (event: React.FormEvent<{}>): void {
+    onSubmit = (event: React.FormEvent<{}>): void => {
         event.preventDefault();
         if (this.props.longUri.length <= 0) {
             this.errorText = "Empty long uri field";
